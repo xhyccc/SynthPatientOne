@@ -159,11 +159,14 @@ Write `profile.html` — self-contained HTML with:
 1. Demographics & completeness bar.
 2. Current Clinical Status (collapsible per department, color-coded badges).
 3. **Unknown Factors Audit**: 📅 Deprecated | ❌ Critical Unknowns | ⚠️ Uncertainties | ❌ Routine Unknowns | By-Department Completeness table.
-4. Clinical History (timeline + per-department).
-5. Cross-Department Synthesis.
-6. Priority Action Items.
+4. **🔍 Potential Missing Diagnoses**: Conditions not formally documented but strongly suggested by the clinical picture — list each with estimated probability, the evidence pattern supporting it (e.g., constellation of symptoms, lab abnormalities, risk factors), the diagnostic pathway to confirm or exclude it, and the clinical impact if the diagnosis is present and missed.
+5. **📈 Disease Progression Trajectories**: For each active condition, project the expected evolution over 3, 6, and 12 months — classify as Stable / Likely Progressive / High Risk of Acute Decompensation. For each trajectory, specify: what would trigger re-escalation, what early warning signs to monitor, and what preventive interventions could alter the trajectory.
+6. **⚠️ Diagnostic Reliability Flags**: Identify tests or diagnoses in the profile that carry a material risk of measurement error, misclassification, or pre-analytical confounding in this specific clinical context. For each flag: state the known limitation, estimate the false-positive/negative risk, and recommend the confirmatory step before major clinical decisions are made.
+7. Clinical History (timeline + per-department).
+8. Cross-Department Synthesis.
+9. Priority Action Items.
 
-**Log to `logs/profile_gen.txt`**: Unknown Factors classification rationale, deprecated value decisions, critical-vs-routine judgments, cross-department linking, completeness calculations.
+**Log to `logs/profile_gen.txt`**: Unknown Factors classification rationale, deprecated value decisions, critical-vs-routine judgments, cross-department linking, completeness calculations. Also document the reasoning for every entry in sections 4–6: why a potential missing diagnosis was raised (evidence trail), the basis for each progression trajectory estimate (natural history data, risk scores, current severity), and every diagnostic reliability flag with the specific test limitation cited.
 
 ---
 

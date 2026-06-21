@@ -76,6 +76,10 @@ Full framework in `references/eval_framework.md`.
 | **Guideline Concordance** | Does MDT treatment plan follow NCCN/ESC/AHA/etc. guidelines given simulated values? |
 | **Predicted Morbidity** | What complication risk does the MDT-chosen intervention carry for this simulated patient? |
 | **Predicted Mortality** | What is the estimated mortality risk of the MDT plan for this simulated patient? |
+| **Diagnostic Completeness** | Were all necessary diagnostics identified before treatment was recommended? |
+| **Missing Diagnosis Detection** | Did the MDT identify and plan confirmatory workup for conditions suggested but not formally recorded? |
+| **Disease Trajectory Planning** | Does the plan include monitoring parameters, escalation thresholds, and trajectory-appropriate follow-up? |
+| **Diagnostic Reliability Verification** | Did the MDT flag unreliable test results and defer dependent decisions until confirmatory steps are completed? |
 
 ### Dimension 2: Process & Operational Efficiency (weight: 25%)
 

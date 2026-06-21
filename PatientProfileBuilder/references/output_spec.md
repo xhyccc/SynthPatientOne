@@ -233,6 +233,42 @@ Uncertainties Requiring Clarification:
 - 1.4 Endocrinology + 1.5 Nephrology: Diabetic nephropathy link identified because...
 - ...
 
+=== POTENTIAL MISSING DIAGNOSES ===
+{For each suspected but unconfirmed condition:}
+
+Potential Diagnosis #{N}: {Condition Name}
+  Supporting evidence: {symptoms/labs/risk factors in profile that suggest this diagnosis}
+  Estimated probability: High / Moderate / Low — rationale: {clinical reasoning}
+  Diagnostic pathway: {test(s) or specialist referral needed to confirm or exclude}
+  Clinical impact if missed: {what harm could result from failing to identify this condition —
+    e.g., untreated diabetic nephropathy progresses to ESRD; silent AF increases stroke risk 5×}
+  Linked profile sections: {cite status_tables or history_tables entries}
+
+=== DISEASE PROGRESSION TRAJECTORIES ===
+{For each active condition documented in the profile:}
+
+Condition #{N}: {Diagnosis}
+  Current severity: {mild/moderate/severe — evidence}
+  3-month trajectory: Stable / Likely Progressive / High Risk of Acute Decompensation
+    Rationale: {natural history data, risk scores used, current trend}
+  6-month trajectory: ...
+  12-month trajectory: ...
+  Early warning indicators: {specific measurable signs that signal deterioration}
+  Escalation triggers: {thresholds that should prompt urgent re-evaluation}
+  Preventive interventions that could alter trajectory: {modifiable factors}
+
+=== DIAGNOSTIC RELIABILITY FLAGS ===
+{For each test result or diagnosis that carries material uncertainty in this specific context:}
+
+Flag #{N}: {Test or Diagnosis}
+  Known limitation: {specific measurement/analytical/clinical limitation —
+    e.g., "Single troponin without serial measurements cannot exclude NSTEMI",
+    "HbA1c unreliable in haemolytic anaemia", "CXR has 45% sensitivity for early pneumonia"}
+  Risk in this patient: {why the limitation is especially relevant here}
+  False-positive / false-negative risk: {quantified where evidence exists}
+  Confirmatory step required: {specific test, repeat timing, or specialist review}
+  Clinical decisions dependent on this result: {which management steps should be deferred until confirmed}
+
 === PRIORITY ACTION ITEMS — RANKING RATIONALE ===
 1. Urgent: ... because {clinical urgency}
 2. High: ...
@@ -244,6 +280,9 @@ Uncertainties Requiring Clarification:
 2. Explain timeline event selection: which events made it into the narrative and why.
 3. Justify every cross-department link.
 4. Rank Priority Action Items with explicit clinical rationale.
+5. For every potential missing diagnosis: trace the evidence pattern from the raw records.
+6. For every progression trajectory: cite the natural-history literature or validated risk score used.
+7. For every diagnostic reliability flag: name the specific test limitation (not a generic caveat).
 
 ---
 

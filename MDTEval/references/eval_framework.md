@@ -65,6 +65,41 @@ patient profiles, producing N independent evaluation results that are then aggre
 | 1 — Incomplete | Missed ≥1 critical diagnostic that the simulated profile shows as abnormal. |
 | 0 — Wrong Tests | MDT ordered unnecessary tests or omitted essential ones. |
 
+### 1.6 Missing Diagnosis Detection
+**Question:** Did the MDT identify and act on clinically significant diagnoses that were not formally recorded in the original profile, but which the simulated completion reveals as present?
+
+**Scoring (per simulation):**
+| Score | Criterion |
+|---|---|
+| 3 — Identified & Addressed | MDT flagged the condition as a probable or possible diagnosis and included confirmatory workup in the plan. |
+| 2 — Identified, Not Actioned | MDT noted a differential but did not incorporate confirmatory steps into the plan. |
+| 1 — Partial | MDT recognised general diagnostic uncertainty but did not name the specific missing diagnosis. |
+| 0 — Missed | The simulated profile confirms the diagnosis; MDT did not raise it. Clinical trajectory would be adversely affected. |
+| N/A | No potential missing diagnoses flagged in the profile. |
+
+### 1.7 Disease Trajectory Planning
+**Question:** Did the MDT's plan adequately account for the expected progression of the patient's active conditions, and were appropriate monitoring and escalation triggers specified?
+
+**Scoring (per simulation):**
+| Score | Criterion |
+|---|---|
+| 3 — Comprehensive | Plan includes specific monitoring parameters, target intervals, and escalation thresholds consistent with the simulated trajectory. |
+| 2 — Adequate | Core trajectory addressed with follow-up scheduled, but monitoring thresholds not fully specified. |
+| 1 — Superficial | Follow-up noted but no structured monitoring or escalation criteria. |
+| 0 — Absent | Plan makes no provision for disease progression; the simulated trajectory indicates the patient would deteriorate without the escalation pathway. |
+
+### 1.8 Diagnostic Reliability Verification
+**Question:** Did the MDT recognise and address tests or diagnoses in the profile that carry a material risk of error or misclassification, before making major clinical decisions that depend on those results?
+
+**Scoring (per simulation):**
+| Score | Criterion |
+|---|---|
+| 3 — Fully Addressed | MDT explicitly flagged unreliable test results, deferred dependent decisions, and specified confirmatory steps with owners and timelines. |
+| 2 — Partly Addressed | MDT flagged the uncertainty but did not fully defer or plan confirmation. |
+| 1 — Incidentally Noted | Uncertainty mentioned in discussion but not reflected in the decision or action plan. |
+| 0 — Not Recognised | MDT made major clinical decisions directly from a flagged unreliable result; the simulated profile shows a different ground truth. |
+| N/A | No diagnostic reliability flags raised in the profile. |
+
 ---
 
 ## Dimension 2: Process &amp; Operational Efficiency

@@ -39,6 +39,30 @@ Every concern MUST cite the evidence from the status table.}
 {What missing data limits this department's ability to make a confident recommendation?
 Reference: Unknown Factors Audit in profile.html.
 For each gap: what test is needed, what decision it would inform, and how urgently.}
+
+## Potential Missing Diagnoses
+
+{From this department's perspective, what conditions may be present in the patient but
+are not formally documented? For each:
+- What evidence pattern (symptoms, labs, risk factors) raises suspicion?
+- What is the estimated clinical probability: High / Moderate / Low?
+- What is the single most important test or referral to confirm or exclude it?
+- What is the clinical impact if this diagnosis is present and goes unrecognised?}
+
+## Disease Progression Trajectory
+
+{For each condition within this department's scope that is currently active:
+- Expected trajectory over 3, 6, and 12 months: Stable / Likely Progressive / High Risk of Acute Decompensation
+- Key early warning indicators the MDT should monitor
+- Any intervention within this department's remit that could favourably alter the trajectory}
+
+## Diagnostic Reliability Concerns
+
+{Are any test results or diagnoses in the profile potentially unreliable in this patient's context?
+For each concern:
+- The specific test and its known limitation (e.g., "single troponin cannot exclude NSTEMI without serial measurements", "HbA1c unreliable in haemolytic anaemia")
+- Why the limitation applies to this patient
+- The confirmatory step required before clinical decisions depend on this result}
 ```
 
 ## Evidence Summary Template

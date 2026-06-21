@@ -134,6 +134,23 @@ patient's status from this specialty's perspective?}
 ### Contingency Plan
 {If the primary plan fails or is delayed, what is Plan B?}
 
+### MDT Assessment of Missing Diagnoses
+{List any potential missing diagnoses raised in Phase 2 departmental reviews.
+For each: MDT consensus on probability, whether confirmatory workup is incorporated
+into the implementation plan, and which department is responsible.}
+
+### Disease Progression and Monitoring Plan
+{Based on the expected trajectories identified in departmental reviews:
+- Key monitoring parameters and their target intervals
+- Thresholds that would trigger immediate re-escalation or MDT re-convening
+- Preventive interventions included in the plan to slow progression}
+
+### Diagnostic Reliability Confirmations Required
+{List any tests or diagnoses flagged as potentially unreliable in Phase 2 reviews.
+For each: state whether the MDT has deferred dependent clinical decisions until
+confirmation is obtained, which department owns the confirmatory step, and the
+target timeline.}
+
 ## Five Standard Outcomes
 
 | # | Outcome | When to Choose |
