@@ -109,6 +109,9 @@ For each simulation, vary:
 | Complication emergence | Whether risk factors manifest as complications |
 | Lifestyle trajectory | Smoking cessation, weight loss/gain |
 | Lab noise | Values drawn from clinically informed distributions |
+| Missing diagnosis resolution | Some simulations have a suspected-but-unconfirmed diagnosis (from Potential Missing Diagnoses) present; others do not — vary which conditions manifest across the N runs |
+| Diagnostic reliability | Some simulations simulate a flagged test result being a false positive or false negative — showing how management changes if the original result was erroneous |
+| Trajectory branch | For conditions with non-stable projected trajectories, create simulations that follow the progression path and simulations that plateau or improve |
 
 Each simulation gets a unique **Scenario Label** and **Seed ID**.
 

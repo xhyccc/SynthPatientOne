@@ -45,8 +45,11 @@ For N simulations, the LLM should vary the following across runs:
 | **Complication emergence** | Whether new complications develop from known risk factors |
 | **Lifestyle factors** | Smoking cessation vs. continuation, weight change |
 | **Lab noise** | Values drawn from plausible clinical distributions |
+| **Missing diagnosis resolution** | In some simulations, a suspected-but-unconfirmed diagnosis (from the profile's Potential Missing Diagnoses section) IS present; in others it is absent. Vary which suspected conditions manifest across the N runs. |
+| **Diagnostic reliability** | In some simulations, simulate the outcome where a flagged test result was a false positive or false negative (from the profile's Diagnostic Reliability Flags section) — showing how management would differ if the original result was erroneous. |
+| **Trajectory branch** | For each active condition with a non-stable projected trajectory, create simulations that follow the progression path versus those that plateau or improve. |
 
-Each simulation gets a **Scenario Label** (e.g., "Stable, Well-Controlled", "Progressive Decline", "Partial Response", "Complication Cascade") and a **Seed ID** (e.g., `sim_01_seed_20250621_abc`).
+Each simulation gets a **Scenario Label** (e.g., "Stable, Well-Controlled", "Progressive Decline", "Partial Response", "Complication Cascade", "Missed Diagnosis Confirmed", "Diagnostic False Positive — Revised Workup", "Trajectory Inflection — Early Decompensation") and a **Seed ID** (e.g., `sim_01_seed_20250621_abc`).
 
 ### Step 4 — Simulation Table Format
 
