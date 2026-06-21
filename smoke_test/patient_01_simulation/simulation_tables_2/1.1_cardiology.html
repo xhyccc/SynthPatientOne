@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Cardiology Status</title>
+<style>body{font-family:sans-serif;max-width:1100px;margin:20px auto;padding:0 20px}
+h1{border-bottom:2px solid #333}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #ddd;padding:6px;text-align:left}th{background:#f0f0f0}
+.status-known{background:#d4edda;color:#155724}.status-uncertain{background:#fff3cd;color:#856404}
+.status-deprecated{background:#e2e3e5;color:#383d41}.status-notknown{background:#f8d7da;color:#721c24}
+</style></head><body>
+<h1>1.1 Cardiology</h1><p><strong>First-Tier:</strong> Internal Medicine | <strong>Scope:</strong> Heart and blood vessels.</p>
+<p><strong>Time Window:</strong> 2025-06-10 to 2025-06-15 (admission)</p>
+<h2>Status Table — Time-Window Snapshot</h2>
+<table><thead><tr><th>#</th><th>Variable</th><th>Expected</th><th>Latest Value</th><th>Value Age</th><th>Status</th><th>Date</th><th>Source</th><th>Comment</th></tr></thead><tbody>
+<tr><td>1</td><td>Blood Pressure</td><td>&lt;120/&lt;80 mmHg</td><td>142/88 mmHg</td><td>4 days ago</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td>Stage 1 hypertension. Elevated during admission.</td></tr>
+<tr><td>2</td><td>Heart Rate</td><td>60-100 bpm</td><td>82 bpm</td><td>4 days ago</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td>Normal sinus</td></tr>
+<tr><td>3</td><td>Lipid Panel — LDL</td><td>&lt;100 mg/dL</td><td>112 mg/dL</td><td>15 months</td><td class="status-deprecated">📅 Deprecated</td><td>2024-03-20</td><td>raw/lab_results.csv</td><td>Last known: 112 (BORDERLINE, 2024-03). Outside 6-month window. Needs re-measurement given diabetes+hypertension.</td></tr>
+<tr><td>4</td><td>Lipid Panel — HDL</td><td>&gt;40 mg/dL male</td><td>38 mg/dL</td><td>15 months</td><td class="status-deprecated">📅 Deprecated</td><td>2024-03-20</td><td>raw/lab_results.csv</td><td>Last known: 38 (LOW, 2024-03). Low HDL is a cardiovascular risk factor.</td></tr>
+<tr><td>5</td><td>Lipid Panel — Triglycerides</td><td>&lt;150 mg/dL</td><td>240 mg/dL</td><td>15 months</td><td class="status-deprecated">📅 Deprecated</td><td>2024-03-20</td><td>raw/lab_results.csv</td><td>Last known: 240 (HIGH, 2024-03). Consistent with diabetic dyslipidemia.</td></tr>
+<tr><td>6</td><td>12-Lead ECG</td><td>Normal sinus, no ischemic changes</td><td>Normal sinus rhythm, no ischemic changes</td><td>4 days ago</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td>During admission for rule-out ACS</td></tr>
+<tr><td>7</td><td>Echocardiogram</td><td>EF >55%, normal wall motion</td><td>—</td><td>—</td><td class="status-notknown">❌ Not Known</td><td>—</td><td>—</td><td>Not performed. Would assess for hypertensive heart disease given 10-year HTN history.</td></tr>
+<tr><td>8</td><td>Troponin I</td><td>&lt;0.04 ng/mL</td><td>&lt;0.01 ng/mL (×3 serial)</td><td>4 days ago</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/lab_results.csv</td><td>Negative at 0h, 3h, 6h. ACS excluded.</td></tr>
+<tr><td>9</td><td>BNP / NT-proBNP</td><td>&lt;100 pg/mL</td><td>—</td><td>—</td><td class="status-notknown">❌ Not Known</td><td>—</td><td>—</td><td>Not drawn. Would help assess for HF given dyspnea + HTN.</td></tr>
+<tr><td>10</td><td>Chest Pain</td><td>Absent</td><td>Present — atypical, substernal pressure, 4/10</td><td>During admission</td><td class="status-known">✅ Known</td><td>2025-06-10</td><td>raw/discharge_summary.md</td><td>Atypical chest pain. ACS ruled out. Likely musculoskeletal/COPD-related.</td></tr>
+<tr><td>11</td><td>Palpitations</td><td>Absent</td><td>Denies</td><td>During admission</td><td class="status-known">✅ Known</td><td>2025-06-10</td><td>raw/discharge_summary.md</td><td></td></tr>
+<tr><td>12</td><td>Syncope</td><td>Absent</td><td>Denies</td><td>During admission</td><td class="status-known">✅ Known</td><td>2025-06-10</td><td>raw/discharge_summary.md</td><td></td></tr>
+<tr><td>13</td><td>Peripheral Edema</td><td>Absent</td><td>No edema</td><td>During admission</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td></td></tr>
+<tr><td>14</td><td>Family Hx — Early CAD</td><td>None</td><td>Father MI at 52</td><td>Lifetime</td><td class="status-known">✅ Known</td><td>—</td><td>raw/discharge_summary.md</td><td>Significant risk factor for premature CAD</td></tr>
+<tr><td>15</td><td>Smoking Status</td><td>Never</td><td>Current smoker, 35 pack-years</td><td>Ongoing</td><td class="status-known">✅ Known</td><td>2025-06-15</td><td>raw/discharge_summary.md</td><td>1 pack/day. Major modifiable risk factor.</td></tr>
+<tr><td>16</td><td>Hypertension Diagnosis</td><td>No</td><td>Yes — Stage 1, diagnosed 2015</td><td>10 years</td><td class="status-known">✅ Known</td><td>2015</td><td>raw/discharge_summary.md</td><td>On Lisinopril 10mg daily. BP 142/88 during admission.</td></tr>
+<tr><td>17</td><td>Heart Failure Diagnosis</td><td>No</td><td>No history</td><td>—</td><td class="status-known">✅ Known</td><td>—</td><td>raw/discharge_summary.md</td><td>No clinical signs. BNP not checked.</td></tr>
+<tr><td>18</td><td>CAD Diagnosis</td><td>No</td><td>No known CAD</td><td>—</td><td class="status-known">✅ Known</td><td>—</td><td>raw/discharge_summary.md</td><td>ACS ruled out this admission. No prior MI.</td></tr>
+<tr><td>19</td><td>Antiplatelet/Anticoagulant Use</td><td>None</td><td>None</td><td>—</td><td class="status-known">✅ Known</td><td>—</td><td>raw/discharge_summary.md</td><td>Not prescribed. No indication (no CAD, no AFib).</td></tr>
+<tr><td>20</td><td>Carotid Assessment</td><td>No bruits</td><td>No carotid bruits</td><td>During admission</td><td class="status-known">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td>Clinical exam only. No carotid ultrasound.</td></tr>
+</tbody></table></body></html>

@@ -1,0 +1,8 @@
+# Translation Log
+# Documents any non-English → English translation performed during Phase 2 audit.
+# Format: [timestamp] [source_file] [source_language] → English: original_text → translated_text (confidence: X%)
+
+# Profile: patient_02_profile
+# Started: 2026-06-21T09:46:08.564361
+======================================================================
+

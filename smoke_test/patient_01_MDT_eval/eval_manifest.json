@@ -1,0 +1,6 @@
+{
+  "patient_id": "patient_smoke_test",
+  "eval_date": "2025-06-21",
+  "N": 2,
+  "model": "claude"
+}

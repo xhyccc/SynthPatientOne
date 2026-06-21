@@ -1,0 +1,55 @@
+{
+  "N": 10,
+  "simulations": [
+    {
+      "id": "sim_01",
+      "seed": "sim_01_20250621_a",
+      "scenario": "Optimal Recovery"
+    },
+    {
+      "id": "sim_02",
+      "seed": "sim_02_20250621_b",
+      "scenario": "Mild Hyperglycemia"
+    },
+    {
+      "id": "sim_03",
+      "seed": "sim_03_20250621_c",
+      "scenario": "Wound Infection"
+    },
+    {
+      "id": "sim_04",
+      "seed": "sim_04_20250621_d",
+      "scenario": "Bile Leak"
+    },
+    {
+      "id": "sim_05",
+      "seed": "sim_05_20250621_e",
+      "scenario": "DVT"
+    },
+    {
+      "id": "sim_06",
+      "seed": "sim_06_20250621_f",
+      "scenario": "Pneumonia"
+    },
+    {
+      "id": "sim_07",
+      "seed": "sim_07_20250621_g",
+      "scenario": "Urinary Retention"
+    },
+    {
+      "id": "sim_08",
+      "seed": "sim_08_20250621_h",
+      "scenario": "Uncontrolled Pain"
+    },
+    {
+      "id": "sim_09",
+      "seed": "sim_09_20250621_i",
+      "scenario": "Delayed Discharge"
+    },
+    {
+      "id": "sim_10",
+      "seed": "sim_10_20250621_j",
+      "scenario": "Readmission"
+    }
+  ]
+}

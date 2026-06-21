@@ -1,0 +1,101 @@
+{
+  "patient_id": "patient_02",
+  "N": 10,
+  "scores": [
+    {
+      "sim": "sim_01",
+      "scenario": "Optimal Recovery",
+      "d1": 95,
+      "d2": 92,
+      "d3": 90,
+      "d4": 88,
+      "overall": 92.2
+    },
+    {
+      "sim": "sim_02",
+      "scenario": "Mild Hyperglycemia",
+      "d1": 85,
+      "d2": 80,
+      "d3": 82,
+      "d4": 85,
+      "overall": 83.2
+    },
+    {
+      "sim": "sim_03",
+      "scenario": "Wound Infection",
+      "d1": 72,
+      "d2": 68,
+      "d3": 65,
+      "d4": 85,
+      "overall": 71.5
+    },
+    {
+      "sim": "sim_04",
+      "scenario": "Bile Leak",
+      "d1": 60,
+      "d2": 55,
+      "d3": 58,
+      "d4": 85,
+      "overall": 62.1
+    },
+    {
+      "sim": "sim_05",
+      "scenario": "DVT",
+      "d1": 60,
+      "d2": 55,
+      "d3": 58,
+      "d4": 85,
+      "overall": 62.1
+    },
+    {
+      "sim": "sim_06",
+      "scenario": "Pneumonia",
+      "d1": 72,
+      "d2": 68,
+      "d3": 65,
+      "d4": 85,
+      "overall": 71.5
+    },
+    {
+      "sim": "sim_07",
+      "scenario": "Urinary Retention",
+      "d1": 85,
+      "d2": 80,
+      "d3": 82,
+      "d4": 85,
+      "overall": 83.2
+    },
+    {
+      "sim": "sim_08",
+      "scenario": "Uncontrolled Pain",
+      "d1": 78,
+      "d2": 75,
+      "d3": 70,
+      "d4": 85,
+      "overall": 76.7
+    },
+    {
+      "sim": "sim_09",
+      "scenario": "Delayed Discharge",
+      "d1": 85,
+      "d2": 80,
+      "d3": 82,
+      "d4": 85,
+      "overall": 83.2
+    },
+    {
+      "sim": "sim_10",
+      "scenario": "Readmission",
+      "d1": 60,
+      "d2": 55,
+      "d3": 58,
+      "d4": 85,
+      "overall": 62.1
+    }
+  ],
+  "aggregate": {
+    "mean": 74.8,
+    "min": 62.1,
+    "max": 92.2
+  }
+}

@@ -1,0 +1,3 @@
+EVAL SUMMARY — patient_smoke_test — 2 simulations
+Mean: 79/100
+Robustness: MDT decision performs well in stable scenario (85/100) but degrades in progressive decline (73/100). Key sensitivity: lipid panel deprecation and missing echo.

@@ -2,7 +2,7 @@
 
 ## Output Folder Structure
 
-Given simulation folder `{patient_id}_simulation/` and MDT result folder `{patient_id}_profile/mdt/`:
+Given simulation folder `{patient_id}_simulation/` and MDT result folder `{patient_id}_MDT/`:
 
 ```
 {patient_id}_MDT_eval/

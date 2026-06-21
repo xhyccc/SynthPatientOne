@@ -1,0 +1,11 @@
+{
+  "patient_dir": "/Users/haoyi/Desktop/working_space/SynthPatientOne/patient_smoke_test",
+  "profile_dir": "/Users/haoyi/Desktop/working_space/SynthPatientOne/patient_smoke_test_profile",
+  "ingestion_date": "2026-06-21T09:15:21.932338",
+  "files": [
+    "combined_records.md",
+    "referral_letter.md",
+    "discharge_summary.md",
+    "lab_results.md"
+  ]
+}

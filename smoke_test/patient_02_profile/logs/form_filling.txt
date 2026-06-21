@@ -1,0 +1,8 @@
+# Form Filling Audit Log
+# Records every variable fill decision for every status/history table.
+# Format: [table_name] [row_number] [variable]: decision_rationale, unit_conversion, Value_Age_calculation, status_reasoning, source_citation
+
+# Profile: patient_02_profile
+# Started: 2026-06-21T09:46:08.564712
+======================================================================
+

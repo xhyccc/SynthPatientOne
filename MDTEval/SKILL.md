@@ -3,7 +3,7 @@ name: MDTEval
 description: >
   Evaluate Multidisciplinary Team (MDT) decisions against N simulated patient profiles.
   Given a simulation folder ({patient_id}_simulation/) and MDT result folder
-  ({patient_id}_profile/mdt/), evaluate the MDT's performance across four core dimensions:
+  ({patient_id}_MDT/), evaluate the MDT's performance across four core dimensions:
   (1) Clinical Outcomes & Efficacy — diagnostic concordance, guideline adherence, predicted
   morbidity/mortality across simulations; (2) Process & Operational Efficiency — time-to-treatment,
   implementation feasibility, data completeness, quorum quality; (3) Patient Experience & Quality
@@ -108,7 +108,7 @@ Full framework in `references/eval_framework.md`.
 
 ### Phase 0 — Setup
 
-1. Read `{patient_id}_profile/mdt/consensus_report.html` — extract the MDT decision.
+1. Read `{patient_id}_MDT/consensus_report.html` — extract the MDT decision.
 2. Read `{patient_id}_simulation/simulation_manifest.json` — get all N simulation seeds and scenarios.
 3. Create `{patient_id}_MDT_eval/` with all subdirectories.
 

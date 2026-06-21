@@ -1,0 +1,64 @@
+{
+  "patient_id": "patient_smoke_test",
+  "N_simulations": 2,
+  "scores": [
+    {
+      "sim_id": "sim_01",
+      "seed": "sim_01_20250621_a1b",
+      "scenario": "Stable, Well-Controlled",
+      "d1": {
+        "diagnostic_concordance": 92,
+        "guideline_concordance": 88,
+        "morbidity_risk": 85,
+        "mortality_risk": 90
+      },
+      "d2": {
+        "time_to_treatment": 85,
+        "implementation_feasibility": 90,
+        "data_completeness": 65,
+        "quorum": 95
+      },
+      "d3": {
+        "proms": 88,
+        "shared_decision": 85,
+        "psychosocial": 70
+      },
+      "d4": {
+        "psychological_safety": 80,
+        "meeting_efficiency": 85,
+        "documentation": 90
+      }
+    },
+    {
+      "sim_id": "sim_02",
+      "seed": "sim_02_20250621_c3d",
+      "scenario": "Progressive Decline",
+      "d1": {
+        "diagnostic_concordance": 78,
+        "guideline_concordance": 75,
+        "morbidity_risk": 60,
+        "mortality_risk": 55
+      },
+      "d2": {
+        "time_to_treatment": 70,
+        "implementation_feasibility": 65,
+        "data_completeness": 65,
+        "quorum": 95
+      },
+      "d3": {
+        "proms": 55,
+        "shared_decision": 85,
+        "psychosocial": 70
+      },
+      "d4": {
+        "psychological_safety": 80,
+        "meeting_efficiency": 85,
+        "documentation": 90
+      }
+    }
+  ],
+  "aggregate": {
+    "mean_overall": 78.7,
+    "robustness": "MDT decision performs well in stable scenario (85/100) but degrades in progressive decline (73/100). Key sensitivity: lipid panel deprecation and missing echo."
+  }
+}

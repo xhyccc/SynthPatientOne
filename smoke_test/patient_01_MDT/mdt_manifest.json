@@ -1,0 +1,20 @@
+{
+  "patient_id": "patient_smoke_test",
+  "mdt_date": "2025-06-21",
+  "scope": "Complex COPD + Cardiovascular Risk",
+  "chair": "Pulmonology",
+  "coordinator": "Internal Medicine",
+  "consensus_outcome": "Further Diagnostics Required + Therapeutic Intervention (Pharmacotherapy)",
+  "participating_departments": [
+    "1.2_pulmonology",
+    "1.1_cardiology",
+    "1.4_endocrinology",
+    "1.5_nephrology",
+    "7.1_radiology"
+  ],
+  "files": {
+    "solution_html": "mdt_solution.html",
+    "reasoning_dir": "reasoning/",
+    "logs_dir": "logs/"
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Simulated Profile — patient_02 (Sim 04/10)</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:1100px;margin:20px auto;padding:0 20px;line-height:1.5;color:#333}
+h1{border-bottom:3px solid #6c3483;color:#6c3483}
+h2{border-bottom:1px solid #999;padding-bottom:4px;margin-top:24px}
+.sim-header{background:#f5eef8;border:1px solid #d2b4de;padding:16px;border-radius:6px;margin:16px 0}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+th,td{border:1px solid #ddd;padding:6px 8px}th{background:#f0f0f0}
+.status-known{color:#1a7a1a;background:#e6ffe6}
+.status-simulated{color:#6c3483;background:#f5eef8}
+details{margin:16px 0}summary{cursor:pointer;font-weight:600;padding:8px;background:#f0f0f0;border-radius:4px}
+.completeness-bar{height:20px;background:#e0e0e0;border-radius:10px;overflow:hidden;margin:8px 0}
+.completeness-fill{height:100%;background:linear-gradient(90deg,#27ae60,#6c3483);border-radius:10px}
+.scenario-label{display:inline-block;background:#6c3483;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px}
+</style></head><body>
+
+<h1>Simulated Patient Profile — patient_02</h1>
+
+<div class="sim-header">
+  <p><span class="scenario-label">Bile Leak</span></p>
+  <p><strong>Simulation:</strong> sim_04 / 10 &nbsp;|&nbsp; <strong>Seed:</strong> sim_04_20250621_d</p>
+  <p><strong>Generated:</strong> 2025-06-21 &nbsp;|&nbsp; <strong>Completeness:</strong> 60%</p>
+  <div class="completeness-bar"><div class="completeness-fill" style="width:60%"></div></div>
+</div>
+
+<details>
+<summary>📋 Section 1 — Original Status (from profile)</summary>
+<p><em>Known values from patient_02_profile/status_tables/. 48 ✅ Known variables across 9 departments.</em></p>
+<table>
+<tr><td colspan="2"><strong>Patient Demographics:</strong> 53F, BMI 29.5, never smoker, BRCA2+</td></tr>
+<tr><td colspan="2"><strong>Key Diagnoses:</strong> HTN (controlled), T2DM (HbA1c 6.8%), Hyperlipidemia (on statin), Cholelithiasis</td></tr>
+<tr><td>BP</td><td>128/76 mmHg (on Lisinopril 20mg)</td></tr>
+<tr><td>HbA1c</td><td>6.8% (improved from 8.1% in 2024)</td></tr>
+<tr><td>LDL / HDL / TG</td><td>88 / 52 / 145 (on Atorvastatin — optimal)</td></tr>
+<tr><td>Echo</td><td>EF 62%, normal valves, normal RV</td></tr>
+<tr><td>Stress Test</td><td>Duke +7 (low risk), 10 METs</td></tr>
+<tr><td>Abdominal US</td><td>Cholelithiasis, 1.2cm stone, Murphy+, no acute cholecystitis</td></tr>
+<tr><td>Pre-op Labs</td><td>All WNL. Cr 0.82, eGFR 88, Hb 13.1, Plt 268, PT/INR normal</td></tr>
+</table>
+</details>
+<details open>
+<summary>🔮 Section 2 — Simulated Profile (Bile Leak)</summary>
+<p><em>Predicted post-operative values and outcomes. 🔮 = simulated by LLM.</em></p>
+<table>
+<tr><td>🔮 Scenario</td><td><strong>Bile Leak</strong></td></tr>
+<tr><td>🔮 Post-op Glucose</td><td>118-145 mg/dL (well-controlled)</td></tr>
+<tr><td>🔮 Wound Status</td><td>Clean, dry, healing well</td></tr>
+<tr><td>🔮 Complication</td><td>Small bile leak identified POD#3. Managed conservatively with drain. Resolved spontaneously.</td></tr>
+<tr><td>🔮 Length of Stay</td><td>POD#2</td></tr>
+<tr><td>🔮 Discharge Disposition</td><td>Home with follow-up instructions</td></tr>
+</table>
+</details>
+<details>
+<summary>🧠 Section 3 — Reasoning Traces</summary>
+<div style="background:#f8f9fa;border-left:4px solid #6c3483;padding:12px 16px;margin:8px 0;font-size:13px">
+<strong>Scenario Selection: Bile Leak</strong><br><br>
+<strong>Clinical Basis:</strong> Known patient factors: DM → hyperglycemia risk. Surgical procedure → bleeding/infection/DVT risk. Age 53 with good functional status (walks 2 miles/day, 10 METs on stress test) → generally favorable recovery. BRCA2+ adds long-term surveillance but does not affect surgical outcome.<br><br>
+<strong>Prediction Method:</strong> Population complication rates for laparoscopic cholecystectomy (bile leak ~1%, wound infection ~3%, DVT ~0.5%, pneumonia ~2%, readmission ~4%) adjusted for DM and BMI.<br><br>
+<strong>Seed:</strong> sim_04_20250621_d — all random choices encoded for reproducibility.<br><br>
+<strong>Description:</strong> Small bile leak identified POD#3. Managed conservatively with drain. Resolved spontaneously.
+</div>
+</details>
+<details>
+<summary>📜 Section 4 — Combined History</summary>
+<table>
+<tr><th>Date</th><th>Event</th><th>Status</th></tr>
+<tr><td>2025-04-10</td><td>Screening mammogram — BI-RADS 2 (Benign)</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-05-20</td><td>Echocardiogram — EF 62%, normal valves</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-05-22</td><td>Stress Test — Duke +7 (low risk)</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-01</td><td>Lipid Panel — LDL 88, HDL 52, TG 145</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-05</td><td>Cardiology Consult — RCRI=0, cleared for surgery</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-15</td><td>Abdominal US — Cholelithiasis, Murphy sign+</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-17</td><td>Pre-op Labs — All WNL. HbA1c 6.8%</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-18</td><td>Laparoscopic Cholecystectomy — EBL 20mL, 45 min</td><td class="status-known">✅ Known</td></tr>
+<tr><td>2025-06-18+</td><td>🔮 Post-op course — Small bile leak identified POD#3. Managed conservatively with drain. Resolved spontaneously.</td><td class="status-simulated">🔮 Simulated</td></tr>
+<tr><td>2025-06-20</td><td>Discharged POD#2</td><td class="status-simulated">🔮 Simulated</td></tr>
+</table>
+</details>
+
+<p style="margin-top:40px;color:#999;font-size:11px">Generated by PatientSimulator — Seed: sim_04_20250621_d</p>
+</body></html>

@@ -1,0 +1,5 @@
+REASONING TRACE — patient_smoke_test
+Phase 1→2: 5 departments selected based on key diagnoses (COPD, DM, HTN) and critical unknowns (lipid panel, PFTs, echo)
+Phase 2→3: All departmental reviews fed directly into meeting positions. No changes between pre-meeting assessment and formal position.
+Phase 3→4: Consensus (further diagnostics + pharmacotherapy) translated into 5 specific actions with deadlines.
+Phase 4→5: Self-assessment honest — identified psychosocial support gap (score 70/100).

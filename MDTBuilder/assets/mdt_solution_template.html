@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDT Solution — {{patient_id}}</title>
+<style>
+  :root {
+    --blue: #1a5276; --green: #27ae60; --red: #e74c3c; --amber: #f39c12;
+    --purple: #8e44ad; --grey: #7f8c8d;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1100px; margin: 20px auto; padding: 0 20px; line-height: 1.5; color: #333; }
+  h1 { border-bottom: 3px solid var(--blue); padding-bottom: 8px; color: var(--blue); }
+  h2 { border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 28px; color: #2c3e50; }
+  h3 { color: #2c3e50; margin-top: 20px; }
+  .header-box { background: #eaf2f8; border: 1px solid #aed6f1; padding: 16px; border-radius: 6px; margin: 16px 0; }
+  .exec-summary { background: #d5f5e3; border-left: 4px solid var(--green); padding: 16px; margin: 16px 0; }
+  .outcome-therapeutic { background: var(--green); color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+  .outcome-diagnostics { background: var(--amber); color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+  .outcome-surveillance { background: #3498db; color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+  .outcome-referral { background: var(--purple); color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+  .outcome-palliative { background: var(--red); color: #fff; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .dept-agree { background: #d4edda !important; }
+  .dept-concern { background: #fdedec !important; border-left: 3px solid var(--red); }
+  .dissenting { background: #f5eef8 !important; border-left: 3px solid var(--purple); }
+  .data-gap { background: #fff3cd !important; }
+  .evidence-link { color: var(--blue); text-decoration: underline; }
+  details { margin: 16px 0; border: 1px solid #ddd; border-radius: 4px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; padding: 12px 16px; background: #f5f5f5; border-radius: 4px; }
+  summary:hover { background: #e8e8e8; }
+  details[open] summary { border-bottom: 1px solid #ddd; border-radius: 4px 4px 0 0; }
+  .section-content { padding: 16px; }
+  .phase-badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: bold; color: #fff; margin-right: 8px; }
+  .phase-1 { background: var(--blue); } .phase-2 { background: #2980b9; }
+  .phase-3 { background: var(--amber); } .phase-4 { background: var(--green); }
+  .phase-5 { background: var(--grey); }
+  .conflict-box { background: #fef9e7; border: 1px solid var(--amber); padding: 12px; margin: 12px 0; border-radius: 4px; }
+  .risk-table th { background: #fdebd0; }
+  .action-urgent { color: var(--red); font-weight: bold; }
+  .action-high { color: var(--amber); font-weight: bold; }
+  .action-routine { color: var(--grey); }
+  .qa-met { color: var(--green); } .qa-notmet { color: var(--red); }
+  @media print { body { max-width: 100%; } details { break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>MDT Solution — {{patient_id}}</h1>
+
+<div class="header-box">
+  <p><strong>MDT Date:</strong> {{mdt_date}} &nbsp;|&nbsp; <strong>Scope:</strong> {{mdt_scope}}</p>
+  <p><strong>Chair:</strong> {{chair_dept}} ({{chair_role}}) &nbsp;|&nbsp; <strong>Coordinator:</strong> {{coordinator_dept}}</p>
+  <p><strong>Consensus:</strong> <span class="{{outcome_css_class}}">{{consensus_outcome}}</span></p>
+</div>
+
+<div class="exec-summary">
+  <h2 style="margin-top:0;border:none;color:var(--green)">Executive Summary</h2>
+  <p>{{executive_summary}}</p>
+</div>
+
+<!-- ================================================================ -->
+<!-- PHASE 1: Team Formation -->
+<!-- ================================================================ -->
+<details open>
+<summary><span class="phase-badge phase-1">P1</span> Team Formation — Scope, Roles &amp; Participating Departments</summary>
+<div class="section-content">
+
+<h3>1.1 MDT Scope</h3>
+<p><strong>Scope:</strong> {{mdt_scope}}</p>
+<p><strong>Rationale:</strong> {{scope_rationale}}</p>
+
+<h3>1.2 Core Clinical Question</h3>
+<div style="background:#fef9e7;padding:12px;border-left:4px solid var(--amber);margin:8px 0;">
+  <strong>{{core_clinical_question}}</strong>
+</div>
+
+<h3>1.3 Participating Departments</h3>
+<table>
+  <thead><tr><th>#</th><th>Department</th><th>Role</th><th>Reason for Inclusion</th><th>Key Data to Present</th></tr></thead>
+  <tbody>{{participating_departments_rows}}</tbody>
+</table>
+
+<h3>1.4 Roles</h3>
+<table>
+  <tr><td><strong>Lead Clinician (Chair)</strong></td><td>{{chair_dept}}</td><td>{{chair_rationale}}</td></tr>
+  <tr><td><strong>MDT Coordinator</strong></td><td>{{coordinator_dept}}</td><td>{{coordinator_rationale}}</td></tr>
+</table>
+
+</div>
+</details>
+
+<!-- ================================================================ -->
+<!-- PHASE 2: Pre-Meeting -->
+<!-- ================================================================ -->
+<details>
+<summary><span class="phase-badge phase-2">P2</span> Pre-Meeting — Departmental Reviews &amp; Evidence Collection</summary>
+<div class="section-content">
+
+<h3>2.1 Agenda</h3>
+<table>
+  <thead><tr><th>#</th><th>Agenda Item</th><th>Presenter</th><th>Time</th></tr></thead>
+  <tbody>{{agenda_rows}}</tbody>
+</table>
+
+<h3>2.2 Departmental Reviews</h3>
+{{departmental_reviews_section}}
+<!-- For each participating department, a collapsible sub-section:
+<details><summary>{{dept_name}} — {{recommendation_summary}}</summary>
+  <h4>Findings Summary</h4><p>{{findings}}</p>
+  <h4>Assessment</h4><p>{{assessment}}</p>
+  <h4>Recommendations</h4><ol>{{recommendations_list}}</ol>
+  <h4>Concerns / Contraindications</h4><div class="dept-concern">{{concerns}}</div>
+  <h4>Data Gaps</h4><ul class="data-gap">{{data_gaps}}</ul>
+  <p><strong>Confidence:</strong> {{confidence_level}}</p>
+</details>
+-->
+
+<h3>2.3 Objective Evidence Summary</h3>
+
+<h4>Imaging</h4>
+<table><thead><tr><th>Study</th><th>Date</th><th>Key Finding</th><th>Source</th></tr></thead>
+<tbody>{{imaging_rows}}</tbody></table>
+
+<h4>Pathology</h4>
+<table><thead><tr><th>Specimen</th><th>Date</th><th>Diagnosis</th><th>Source</th></tr></thead>
+<tbody>{{pathology_rows}}</tbody></table>
+
+<h4>Key Laboratory Results</h4>
+<table><thead><tr><th>Test</th><th>Value</th><th>Date</th><th>Reference</th><th>Source</th></tr></thead>
+<tbody>{{lab_rows}}</tbody></table>
+
+<h4>Key Unknown Factors (from profile)</h4>
+<table><thead><tr><th>Dept</th><th>Variable</th><th>Status</th><th>Impact on MDT Decision</th></tr></thead>
+<tbody>{{unknown_factors_rows}}</tbody></table>
+
+</div>
+</details>
+
+<!-- ================================================================ -->
+<!-- PHASE 3: Meeting -->
+<!-- ================================================================ -->
+<details>
+<summary><span class="phase-badge phase-3">P3</span> MDT Meeting — Discussion, Conflict Resolution &amp; Consensus</summary>
+<div class="section-content">
+
+<h3>3.1 Case Presentation</h3>
+<p><strong>Presented by:</strong> {{presenter_dept}}</p>
+<div style="background:#f8f9fa;padding:12px;border-radius:4px;">{{case_presentation_text}}</div>
+
+<h3>3.2 Objective Data Review</h3>
+<p><strong>Imaging Reviewed:</strong> {{imaging_reviewed_list}}</p>
+<p><strong>Pathology Reviewed:</strong> {{pathology_reviewed_list}}</p>
+<div style="background:#d5f5e3;padding:12px;border-left:4px solid var(--green);margin:8px 0;">
+  <strong>Undisputed Facts Established:</strong>
+  <ul>{{undisputed_facts}}</ul>
+</div>
+
+<h3>3.3 Departmental Positions</h3>
+{{departmental_positions_section}}
+<!-- Each dept's position block:
+<div class="dept-agree" style="padding:12px;margin:8px 0;border-radius:4px;">
+  <strong>{{dept_name}}</strong> — Assessment: {{assessment}}<br>
+  Recommendation: {{recommendation}}<br>
+  Evidence: {{evidence_basis}} (Confidence: {{confidence}})
+</div>
+-->
+
+<h3>3.4 Conflict Resolution</h3>
+{{conflict_resolution_section}}
+<!-- If no conflicts: "<p>No inter-departmental conflicts identified. All departments agreed on the treatment pathway.</p>" -->
+<!-- If conflicts exist, for each conflict:
+<div class="conflict-box">
+  <strong>Conflict: {{topic}}</strong>
+  <p>{{dept_a}} vs {{dept_b}}</p>
+  <p><strong>Guideline:</strong> {{guideline_citation}}</p>
+  <table class="risk-table"><tr><th>Option</th><th>Morbidity</th><th>Mortality</th><th>QoL</th></tr>
+  <tr><td>{{option_a}}</td><td>{{risk}}</td><td>{{risk}}</td><td>{{risk}}</td></tr>
+  <tr><td>{{option_b}}</td><td>{{risk}}</td><td>{{risk}}</td><td>{{risk}}</td></tr></table>
+  <p><strong>Patient Factors:</strong> {{patient_factors}}</p>
+  <p><strong>Chair Decision:</strong> {{chair_decision}}</p>
+  <p><strong>Rationale:</strong> {{rationale}}</p>
+  <div class="dissenting" style="padding:8px;margin-top:8px;"><strong>Dissenting:</strong> {{dissenting_dept}} — {{dissenting_rationale}}</div>
+</div>
+-->
+
+<h3>3.5 Consensus Outcome</h3>
+<table>
+  <tr><td><strong>Outcome Type</strong></td><td><span class="{{outcome_css_class}}">{{consensus_outcome}}</span></td></tr>
+  <tr><td><strong>Decision</strong></td><td>{{consensus_decision_detail}}</td></tr>
+  <tr><td><strong>Responsible Department</strong></td><td>{{responsible_dept}}</td></tr>
+  <tr><td><strong>Timeline</strong></td><td>{{consensus_timeline}}</td></tr>
+  <tr><td><strong>Success Criteria</strong></td><td>{{success_criteria}}</td></tr>
+  <tr><td><strong>Contingency</strong></td><td>{{contingency_plan}}</td></tr>
+</table>
+
+</div>
+</details>
+
+<!-- ================================================================ -->
+<!-- PHASE 4: Post-Meeting -->
+<!-- ================================================================ -->
+<details>
+<summary><span class="phase-badge phase-4">P4</span> Post-Meeting — Implementation, Communication &amp; Follow-Up</summary>
+<div class="section-content">
+
+<h3>4.1 Implementation Plan</h3>
+<table>
+  <thead><tr><th>#</th><th>Action</th><th>Responsible</th><th>Deadline</th><th>Priority</th></tr></thead>
+  <tbody>{{implementation_rows}}</tbody>
+</table>
+
+<h3>4.2 Patient Communication Summary</h3>
+<div style="background:#eaf2f8;padding:16px;border-radius:4px;">
+  <p><em>To be delivered by {{communicator}} within 7 days of MDT.</em></p>
+  {{patient_communication_text}}
+</div>
+
+<h3>4.3 Outcome Tracking</h3>
+<table>
+  <thead><tr><th>Metric</th><th>Baseline</th><th>Target</th><th>Assessment Date</th></tr></thead>
+  <tbody>{{outcome_tracking_rows}}</tbody>
+</table>
+
+<h3>4.4 MDT Re-Evaluation</h3>
+<p><strong>Scheduled:</strong> {{mdt_reeval_date}}</p>
+<p><strong>Triggers for earlier review:</strong></p>
+<ul>{{reeval_triggers}}</ul>
+
+</div>
+</details>
+
+<!-- ================================================================ -->
+<!-- PHASE 5: Continuous Improvement -->
+<!-- ================================================================ -->
+<details>
+<summary><span class="phase-badge phase-5">P5</span> Continuous Improvement — Quality Audit &amp; Process Review</summary>
+<div class="section-content">
+
+<h3>5.1 Quality Indicators</h3>
+<table>
+  <thead><tr><th>#</th><th>Indicator</th><th>Target</th><th>Actual</th><th>Met?</th><th>Notes</th></tr></thead>
+  <tbody>{{quality_indicators_rows}}</tbody>
+</table>
+
+<h3>5.2 Process Assessment</h3>
+<h4>Strengths</h4>
+<ul>{{strengths}}</ul>
+<h4>Weaknesses</h4>
+<ul>{{weaknesses}}</ul>
+
+<h3>5.3 Action Items for Next MDT</h3>
+<ol>{{improvement_actions}}</ol>
+
+<h3>5.4 Guideline Alignment</h3>
+<table>
+  <thead><tr><th>MDT Recommendation</th><th>Guideline</th><th>Aligned?</th><th>Deviation Justified?</th></tr></thead>
+  <tbody>{{guideline_alignment_rows}}</tbody>
+</table>
+
+</div>
+</details>
+
+<p style="margin-top: 40px; color: #999; font-size: 11px;">
+  Generated by MDTBuilder — {{gen_date}} — <a href="logs/mdt_audit.log">Audit Log</a> — <a href="reasoning/">Reasoning Documents</a>
+</p>
+
+</body>
+</html>

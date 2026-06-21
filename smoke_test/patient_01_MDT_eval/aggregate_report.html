@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>MDT Eval Aggregate</title>
+<style>body{font-family:sans-serif;max-width:1000px;margin:20px auto;padding:0 20px}
+h1{border-bottom:3px solid #1a5276}table{border-collapse:collapse;width:100%;font-size:13px;margin:12px 0}
+th,td{border:1px solid #ddd;padding:6px}th{background:#f0f0f0}
+.e{color:#1a7a1a}.g{color:#2d7d2d}.a{color:#b8860b}.n{color:#d35400}
+</style></head><body>
+<h1>MDT Evaluation — Aggregate Report</h1>
+<p><strong>Patient:</strong> patient_smoke_test | <strong>Simulations:</strong> 2 | <strong>MDT Decision:</strong> Further Diagnostics + Pharmacotherapy</p>
+<p><strong>Mean Overall Score:</strong> 79/100 | <strong>Rating:</strong> Good</p>
+
+<h2>Simulation-by-Simulation</h2>
+<table><tr><th>Sim</th><th>Scenario</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>Overall</th></tr>
+<tr><td>sim_01</td><td>Stable, Well-Controlled</td><td class="e">89</td><td class="g">84</td><td class="g">81</td><td class="g">85</td><td class="e">85</td></tr>
+<tr><td>sim_02</td><td>Progressive Decline</td><td class="a">67</td><td class="a">74</td><td class="a">70</td><td class="g">85</td><td class="a">73</td></tr>
+</table>
+
+<h2>Sensitivity Analysis</h2>
+<p><strong>Robust to:</strong> Quorum quality, documentation quality, shared decision-making (consistent across scenarios).</p>
+<p><strong>Sensitive to:</strong> Ejection fraction simulation (causes 12-point swing), eGFR decline (causes 8-point swing), FEV1 decline (causes 10-point swing).</p>
+<p><strong>Recommendation:</strong> MDT should request echo and PFTs BEFORE finalizing pharmacotherapy plan. The decision to initiate SGLT2i without knowing EF carries risk in the progressive-decline scenario.</p>
+</body></html>

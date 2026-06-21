@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Patient Profile — patient_smoke_test</title>
+<style>body{font-family:sans-serif;max-width:1000px;margin:20px auto;padding:0 20px;line-height:1.5}
+h1{border-bottom:3px solid #1a5276;color:#1a5276}h2{color:#2c3e50;margin-top:24px}
+.bar{height:20px;background:#e0e0e0;border-radius:10px;overflow:hidden;margin:8px 0}
+.bar-fill{height:100%;background:linear-gradient(90deg,#27ae60,#6c3483);border-radius:10px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+th,td{border:1px solid #ddd;padding:6px}th{background:#f0f0f0}
+.sk{background:#d4edda;color:#155724}.sn{background:#f8d7da;color:#721c24}
+.sd{background:#e2e3e5;color:#383d41}.su{background:#fff3cd;color:#856404}
+a{color:#1a5276}details{margin:12px 0}summary{cursor:pointer;font-weight:600;padding:6px;background:#f0f0f0}
+</style></head><body>
+<h1>Patient Profile: patient_smoke_test</h1>
+<p><strong>Generated:</strong> 2025-06-21 | <strong>Sources:</strong> 3 documents (discharge summary, lab results, referral letter)</p>
+<div class="bar"><div class="bar-fill" style="width:66.7%"></div></div>
+<p><strong>Overall Completeness:</strong> 66.7% (16/24 variables known) | ⚠️ 1 uncertain | 📅 4 deprecated | ❌ 3 not known</p>
+
+<h2>Demographics</h2>
+<table><tr><th>Field</th><th>Value</th></tr>
+<tr><td>Age</td><td>58 years (DOB: 1967-03-15)</td></tr>
+<tr><td>Sex</td><td>Male</td></tr>
+<tr><td>BMI</td><td>31.2 kg/m² (obese)</td></tr>
+<tr><td>Chief Complaint</td><td>Chest pain and shortness of breath for 3 days</td></tr>
+<tr><td>Key Diagnoses</td><td>COPD GOLD Stage 2; Type 2 Diabetes Mellitus; Hypertension Stage 1</td></tr>
+<tr><td>Allergies</td><td>No known drug allergies</td></tr>
+<tr><td>Current Medications</td><td>Lisinopril 10mg daily; Metformin 1000mg BID; Tiotropium 18mcg daily; Albuterol 90mcg PRN</td></tr>
+</table>
+
+<h2>Current Clinical Status</h2>
+
+<details open><summary><strong>1. Internal Medicine</strong></summary>
+
+<h3>Cardiology</h3>
+<p>58M with Stage 1 HTN (142/88), 35 pack-year smoking history, family history of premature CAD (father MI at 52). ACS ruled out this admission (serial troponins negative, normal ECG). No known CAD or HF. <strong>Critical gaps:</strong> lipid panel is 15 months old (LDL 112, HDL 38, TG 240 — all abnormal), no echocardiogram, no BNP. ASCVD risk cannot be fully assessed without current lipids. <a href="status_tables/1.1_cardiology.html">[status]</a></p>
+<p>✅ Known: BP, HR, ECG, Troponin, Chest pain | 📅 Deprecated: Lipid panel (2024-03) | ❌ Not Known: Echo, BNP</p>
+
+<h3>Pulmonology</h3>
+<p>COPD GOLD Stage 2 (diagnosed 2020), recent exacerbation treated with prednisone + azithromycin. Current smoker (35 pack-years). SpO₂ 94% at discharge (nadir 91%). CXR shows hyperinflation. PFTs not performed in 3+ years — pulmonology referral placed for reassessment and consideration of ICS/LABA. <a href="status_tables/1.2_pulmonology.html">[status]</a></p>
+<p>✅ Known: Smoking hx, COPD dx, CXR, SpO₂ | ❌ Not Known: PFTs, Chest CT, ABG</p>
+
+<h3>Endocrinology</h3>
+<p>Type 2 DM (diagnosed 2018), poorly controlled: HbA1c 7.8%, fasting glucose 156. On Metformin 1000mg BID monotherapy. BMI 31.2. Likely metabolic syndrome (4/5 ATP III criteria). TSH 2.8 from 2024-01 (deprecated). <a href="status_tables/1.4_endocrinology.html">[status]</a></p>
+<p>✅ Known: HbA1c, Glucose, DM dx, BMI | 📅 Deprecated: TSH | ❌ Not Known: Vitamin D, Free T4</p>
+
+<h3>Nephrology</h3>
+<p>eGFR 82 (borderline Stage G2), creatinine 1.05. On Lisinopril (renoprotective). No proteinuria assessment. <a href="status_tables/1.5_nephrology.html">[status]</a></p>
+
+<h3>Hematology</h3>
+<p>CBC normal: Hb 14.2, WBC 8.9, Plt 245. <a href="status_tables/1.8_hematology.html">[status]</a></p>
+
+<p><em>Other departments (Gastroenterology, Rheumatology, Oncology, Infectious Diseases, Neurology): No data available.</em></p>
+</details>
+
+<details><summary><strong>7. Medical Technology</strong></summary>
+<h3>Radiology</h3><p>CXR only: hyperinflated lungs. No other imaging performed. <a href="status_tables/7.1_radiology_imaging.html">[status]</a></p>
+<h3>Laboratory Medicine</h3><p>CBC, CMP, HbA1c, Troponins all from admission. Lipid panel 15 months old. <a href="status_tables/7.3_laboratory_medicine.html">[status]</a></p>
+<p><em>Other departments (2-7 Surgery, 3 OB/GYN, 4 Pediatrics, 5 Emergency, 6 Specialized): No data available.</em></p>
+</details>
+
+<h2>Unknown Factors Audit</h2>
+<h3>📅 Deprecated Values</h3>
+<table><tr><th>Dept</th><th>Variable</th><th>Last Known</th><th>Age</th><th>Action</th></tr>
+<tr><td>1.1 Cardiology</td><td>Lipid Panel (LDL/HDL/TG)</td><td>112/38/240 (2024-03)</td><td>15 months</td><td>Re-measure. Essential for ASCVD risk in DM+HTN+smoking.</td></tr>
+<tr><td>1.4 Endocrinology</td><td>TSH</td><td>2.8 (2024-01)</td><td>17 months</td><td>Re-measure if clinical indication.</td></tr>
+</table>
+
+<h3>❌ Critical Unknowns</h3>
+<table><tr><th>Dept</th><th>Variable</th><th>Risk if Unassessed</th></tr>
+<tr><td>1.1 Cardiology</td><td>Lipid Panel (current)</td><td>Cannot calculate ASCVD risk; cannot initiate statin per guidelines</td></tr>
+<tr><td>1.1 Cardiology</td><td>Echocardiogram</td><td>Undetected hypertensive heart disease after 10yr HTN</td></tr>
+<tr><td>1.2 Pulmonology</td><td>PFTs</td><td>COPD severity unknown; cannot optimize inhaler therapy</td></tr>
+<tr><td>1.5 Nephrology</td><td>Urine Microalbumin</td><td>Undetected diabetic nephropathy</td></tr>
+</table>
+
+<h2>Priority Action Items</h2>
+<ol>
+<li><strong>Urgent:</strong> Current lipid panel — needed for ASCVD risk stratification and statin initiation decision. <a href="status_tables/1.1_cardiology.html">[cardiology status]</a></li>
+<li><strong>High:</strong> Pulmonary Function Tests — to reassess COPD severity and optimize therapy. <a href="status_tables/1.2_pulmonology.html">[pulmonology status]</a></li>
+<li><strong>High:</strong> Echocardiogram — screen for hypertensive heart disease. <a href="status_tables/1.1_cardiology.html">[cardiology status]</a></li>
+<li><strong>Routine:</strong> Urine microalbumin — annual diabetic nephropathy screening. <a href="status_tables/1.5_nephrology.html">[nephrology status]</a></li>
+<li><strong>Routine:</strong> Smoking cessation intervention — 35 pack-year active smoker. <a href="status_tables/1.2_pulmonology.html">[pulmonology status]</a></li>
+</ol>
+
+<p style="margin-top:40px;color:#999;font-size:11px">Generated by PatientProfileBuilder — patient_smoke_test_profile — 2025-06-21</p>
+</body></html>

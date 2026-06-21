@@ -1,6 +1,11 @@
-# Generated profile outputs
+# Generated folders (only at root)
 *_profile/
 *_simulation/
+*_MDT/
 *_MDT_eval/
+!smoke_test/*_profile/
+!smoke_test/*_simulation/
+!smoke_test/*_MDT/
+!smoke_test/*_MDT_eval/
 .DS_Store
 __pycache__/

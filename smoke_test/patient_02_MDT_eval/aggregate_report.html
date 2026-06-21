@@ -1,0 +1,16 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Aggregate Eval</title>
+<style>body{font-family:sans-serif;max-width:1000px;margin:20px auto}h1{color:#1a5276}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{border:1px solid #ddd;padding:4px}th{background:#f0f0f0}
+.e{color:#1a7a1a}.a{color:#b8860b}.p{color:#c0392b}
+</style></head><body>
+<h1>MDT Evaluation — Aggregate (N=10)</h1>
+<p><strong>Mean Score:</strong> 74.8/100 | <strong>Range:</strong> 62-92</p>
+<p><strong>Interpretation:</strong> MDT decision is robust for uncomplicated recovery (95/100) but degrades with surgical complications (60-65/100 for bile leak, DVT, readmission). Team Dynamics (D4) is stable at 85-88 across all scenarios — a consistent strength.</p>
+<table><tr><th>Sim</th><th>Scenario</th><th>D1</th><th>D2</th><th>D3</th><th>D4</th><th>Overall</th></tr>
+<tr><td>sim_01</td><td>Optimal Recovery</td><td class="e">95</td><td>92</td><td>90</td><td>88</td><td class="e">92</td></tr><tr><td>sim_02</td><td>Mild Hyperglycemia</td><td class="a">85</td><td>80</td><td>82</td><td>85</td><td class="e">83</td></tr><tr><td>sim_03</td><td>Wound Infection</td><td class="a">72</td><td>68</td><td>65</td><td>85</td><td class="a">72</td></tr><tr><td>sim_04</td><td>Bile Leak</td><td class="p">60</td><td>55</td><td>58</td><td>85</td><td class="a">62</td></tr><tr><td>sim_05</td><td>DVT</td><td class="p">60</td><td>55</td><td>58</td><td>85</td><td class="a">62</td></tr><tr><td>sim_06</td><td>Pneumonia</td><td class="a">72</td><td>68</td><td>65</td><td>85</td><td class="a">72</td></tr><tr><td>sim_07</td><td>Urinary Retention</td><td class="a">85</td><td>80</td><td>82</td><td>85</td><td class="e">83</td></tr><tr><td>sim_08</td><td>Uncontrolled Pain</td><td class="a">78</td><td>75</td><td>70</td><td>85</td><td class="e">77</td></tr><tr><td>sim_09</td><td>Delayed Discharge</td><td class="a">85</td><td>80</td><td>82</td><td>85</td><td class="e">83</td></tr><tr><td>sim_10</td><td>Readmission</td><td class="p">60</td><td>55</td><td>58</td><td>85</td><td class="a">62</td></tr>
+</table>
+<h2>Sensitivity Analysis</h2>
+<p><strong>Most sensitive dimension:</strong> D1 Clinical Outcomes (range 60-95). Driven by complication scenarios where MDT's pre-op assessment was correct but post-op course varied.</p>
+<p><strong>Most robust dimension:</strong> D4 Team Dynamics (range 85-88). Consistent across all scenarios — indicates good MDT process regardless of outcome.</p>
+<p><strong>Recommendation:</strong> MDT could improve by anticipating complication scenarios and having contingency plans documented. Currently strong on pre-op assessment, weaker on post-op complication management planning.</p>
+</body></html>

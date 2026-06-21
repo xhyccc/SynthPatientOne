@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>1.4 Endocrinology</title><style>body{font-family:sans-serif;max-width:1100px;margin:20px auto;padding:0 20px}
+h1{border-bottom:2px solid #333}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #ddd;padding:6px;text-align:left}th{background:#f0f0f0}
+.sk{background:#d4edda;color:#155724}.su{background:#fff3cd;color:#856404}
+.sd{background:#e2e3e5;color:#383d41}.sn{background:#f8d7da;color:#721c24}
+</style></head><body>
+<h1>1.4 Endocrinology</h1><p><strong>First-Tier:</strong> Internal Medicine | <strong>Scope:</strong> Hormones and metabolic disorders</p>
+<p><strong>Time Window:</strong> 2025-06-10 to 2025-06-15 (admission)</p>
+<h2>Status Table — Time-Window Snapshot</h2>
+<table><thead><tr><th>#</th><th>Variable</th><th>Expected</th><th>Latest Value</th><th>Value Age</th><th>Status</th><th>Date</th><th>Source</th><th>Comment</th></tr></thead><tbody>
+<tr><td>1</td><td>Fasting Glucose</td><td><100 mg/dL</td><td>156 mg/dL</td><td>4 days ago</td><td class="sk">✅ Known</td><td>2025-06-11</td><td>raw/lab_results.csv</td><td>HIGH. Poorly controlled.</td></tr>
+<tr><td>2</td><td>HbA1c</td><td><5.7%</td><td>7.8%</td><td>4 days ago</td><td class="sk">✅ Known</td><td>2025-06-11</td><td>raw/lab_results.csv</td><td>HIGH. Indicates suboptimal diabetes control.</td></tr>
+<tr><td>3</td><td>DM Dx</td><td>No</td><td>Yes — Type 2, diagnosed 2018</td><td>7 years</td><td class="sk">✅ Known</td><td>2018</td><td>raw/discharge_summary.md</td><td>On Metformin 1000mg BID.</td></tr>
+<tr><td>4</td><td>TSH</td><td>0.4-4.0 mIU/L</td><td>2.8 mIU/L</td><td>17 months</td><td class="sd">📅 Deprecated</td><td>2024-01-15</td><td>raw/lab_results.csv</td><td>Last known: 2.8 (normal, 2024-01). Outside window.</td></tr>
+<tr><td>5</td><td>Free T4</td><td>0.8-1.8 ng/dL</td><td>Not tested</td><td>—</td><td class="sn">❌ Not Known</td><td>—</td><td>—</td><td></td></tr>
+<tr><td>6</td><td>Thyroid Abs</td><td>Negative</td><td>Not tested</td><td>—</td><td class="sn">❌ Not Known</td><td>—</td><td>—</td><td></td></tr>
+<tr><td>7</td><td>Hypothyroidism Dx</td><td>No</td><td>Not documented</td><td>—</td><td class="sn">❌ Not Known</td><td>—</td><td>—</td><td></td></tr>
+<tr><td>8</td><td>Vitamin D</td><td>30-100 ng/mL</td><td>Not tested</td><td>—</td><td class="sn">❌ Not Known</td><td>—</td><td>—</td><td></td></tr>
+<tr><td>9</td><td>BMI</td><td>18.5-24.9</td><td>31.2 kg/m²</td><td>During admission</td><td class="sk">✅ Known</td><td>2025-06-11</td><td>raw/discharge_summary.md</td><td>Obese. Major contributor to insulin resistance.</td></tr>
+<tr><td>10</td><td>Metabolic Syndrome</td><td>No</td><td>Likely — HTN + DM + low HDL + high TG + obesity</td><td>—</td><td class="sn">⚠️ Uncertain</td><td>—</td><td>—</td><td>4/5 ATP III criteria met based on available (deprecated) lipid values. Requires current lipid panel to confirm.</td></tr>
+<tr><td>11</td><td>DM Medications</td><td>None</td><td>Metformin 1000mg BID</td><td>Current</td><td class="sk">✅ Known</td><td>2025-06-15</td><td>raw/discharge_summary.md</td><td>Monotherapy. HbA1c 7.8% suggests need for intensification.</td></tr>
+</tbody></table></body></html>

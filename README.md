@@ -42,10 +42,10 @@ SynthPatientOne takes real or mock patient health records and produces:
 │  └─────┬──────┘    └────────┬─────────┘                          │
 │        │                    │                                     │
 │        ▼                    ▼                                     │
-│  patient_001_profile/   patient_001_simulation/                   │
-│  └── mdt/               ├── simulation_tables_1..N/               │
-│      ├── consensus.html ├── profile_simulation_1..N.html          │
-│      └── ...            └── logs/                                 │
+│  patient_001_MDT/         patient_001_simulation/                 │
+│  ├── mdt_solution.html    ├── simulation_tables_1..N/            │
+│  ├── reasoning/          ├── profile_simulation_1..N.html       │
+│  └── logs/               └── logs/                              │
 │        │                    │                                     │
 │        └────────┬───────────┘                                     │
 │                 ▼                                                 │

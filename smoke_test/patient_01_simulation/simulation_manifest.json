@@ -1,0 +1,20 @@
+{
+  "profile_source": "patient_smoke_test_profile/",
+  "N": 2,
+  "simulations": [
+    {
+      "id": "sim_01",
+      "seed": "sim_01_20250621_a1b",
+      "scenario": "Stable, Well-Controlled",
+      "table_dir": "simulation_tables_1/",
+      "profile_html": "profile_simulation_1.html"
+    },
+    {
+      "id": "sim_02",
+      "seed": "sim_02_20250621_c3d",
+      "scenario": "Progressive Decline",
+      "table_dir": "simulation_tables_2/",
+      "profile_html": "profile_simulation_2.html"
+    }
+  ]
+}
