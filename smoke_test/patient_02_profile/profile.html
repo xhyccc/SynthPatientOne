@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Profile — patient_02 (Sarah Kim)</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:1100px;margin:20px auto;padding:0 20px;line-height:1.5;color:#333}
+  h1{border-bottom:3px solid #1a5276;padding-bottom:8px;color:#1a5276}
+  h2{border-bottom:1px solid #999;padding-bottom:4px;margin-top:28px;color:#2c3e50}
+  h3{color:#2c3e50;margin-top:16px}
+  .demographics{background:#eaf2f8;border:1px solid #aed6f1;padding:16px;border-radius:6px;margin:16px 0}
+  .completeness-bar{height:20px;background:#e0e0e0;border-radius:10px;overflow:hidden;margin:8px 0}
+  .completeness-fill{height:100%;background:linear-gradient(90deg,#27ae60,#3498db);border-radius:10px}
+  .status-known{color:#1a7a1a;background:#e6ffe6;padding:1px 6px;border-radius:3px}
+  .status-uncertain{color:#b8860b;background:#fff8e1;padding:1px 6px;border-radius:3px}
+  .status-deprecated{color:#555;background:#e9e9e9;padding:1px 6px;border-radius:3px}
+  .status-notknown{color:#c00;background:#ffe6e6;padding:1px 6px;border-radius:3px}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+  th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}
+  th{background:#f0f0f0;font-weight:600}
+  tr:nth-child(even) td{background:#fafafa}
+  details{margin:16px 0;border:1px solid #ddd;border-radius:4px}
+  summary{cursor:pointer;font-weight:600;font-size:14px;padding:10px 14px;background:#f5f5f5;border-radius:4px}
+  summary:hover{background:#e8e8e8}
+  details[open] summary{border-bottom:1px solid #ddd;border-radius:4px 4px 0 0}
+  .section-content{padding:14px}
+  .unknown-audit{background:#fef9e7;border:1px solid #f0b429;padding:14px;border-radius:4px;margin:16px 0}
+  .action-urgent{color:#e74c3c;font-weight:bold}
+  .action-high{color:#f39c12;font-weight:bold}
+  .action-routine{color:#7f8c8d}
+  .synthesis-box{background:#eafaf1;border-left:4px solid #27ae60;padding:12px;margin:12px 0}
+  a{color:#1a5276}
+  @media print{body{max-width:100%}details{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<h1>Patient Profile — patient_02</h1>
+
+<div class="demographics">
+  <table>
+    <tr>
+      <td><strong>Name:</strong> Sarah Kim (MRN: PT-002)</td>
+      <td><strong>DOB:</strong> 1972-08-22 (Age: 53)</td>
+      <td><strong>Sex:</strong> Female</td>
+    </tr>
+    <tr>
+      <td><strong>BMI:</strong> 29.5 kg/m²</td>
+      <td><strong>Smoking:</strong> Never smoker</td>
+      <td><strong>Occupation:</strong> High school teacher</td>
+    </tr>
+    <tr>
+      <td><strong>Allergies:</strong> Penicillin (rash)</td>
+      <td><strong>Family Hx:</strong> Father CAD; Sister BRCA2+</td>
+      <td><strong>Genetic Risk:</strong> BRCA2+ pending testing</td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Active Diagnoses:</strong> HTN (controlled) | T2DM (improving) | Hyperlipidemia (treated) | Symptomatic Cholelithiasis → laparoscopic cholecystectomy 2025-06-18</td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Medications:</strong> Lisinopril 20mg daily | Metformin 500mg BID | Atorvastatin 20mg daily</td>
+    </tr>
+  </table>
+  <p><strong>Time Window:</strong> 2025-01-01 to 2025-06-20 (pre/peri/post-operative period)</p>
+  <p><strong>Profile Generated:</strong> 2025-06-20 &nbsp;|&nbsp; <strong>Sources:</strong> 4 documents (cardiology consult, lab results, radiology reports, surgical admission note)</p>
+  <h3 style="margin:8px 0 4px 0">Profile Completeness</h3>
+  <div class="completeness-bar"><div class="completeness-fill" style="width:72%"></div></div>
+  <p style="font-size:12px;color:#555">72% — 48 ✅ Known | 2 ⚠️ Uncertain | 3 📅 Deprecated | 15 ❌ Not Known (across key departments)</p>
+</div>
+
+<!-- Current Clinical Status -->
+<h2>Current Clinical Status</h2>
+
+<details open>
+<summary>🫀 1.1 Cardiology — <span class="status-known">✅ Well-characterised</span></summary>
+<div class="section-content">
+<p>Comprehensive pre-operative cardiac evaluation completed. <strong>Low surgical risk (RCRI = 0).</strong></p>
+<table>
+  <thead><tr><th>Variable</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Blood Pressure</td><td>128/76 mmHg</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+    <tr><td>Heart Rate</td><td>72 bpm</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+    <tr><td>ECG</td><td>Normal sinus rhythm, no ST-T changes, QTc 410ms</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+    <tr><td>Echocardiogram — LVEF</td><td>62%</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/1.1_cardiology.html">1.1_cardiology.html</a></td></tr>
+    <tr><td>Echocardiogram — Wall motion</td><td>Normal. No valvular abnormalities.</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/1.1_cardiology.html">1.1_cardiology.html</a></td></tr>
+    <tr><td>Stress Test</td><td>10 METs. Duke Treadmill Score: +7 (low risk). No ischemia.</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/1.1_cardiology.html">1.1_cardiology.html</a></td></tr>
+    <tr><td>Lipid Panel (LDL/HDL/TG)</td><td>88 / 52 / 145 mg/dL</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/1.1_cardiology.html">1.1_cardiology.html</a></td></tr>
+    <tr><td>RCRI Score</td><td>0 — Low surgical risk</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+    <tr><td>Palpitations</td><td>Occasional — no arrhythmia documented</td><td><span class="status-uncertain">⚠️ Uncertain</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+  </tbody>
+</table>
+<p><em>Assessment: No CAD, no HF, well-controlled HTN on Lisinopril 20mg. Cleared for surgery by Cardiology. ASCVD risk: LDL 88 on statin — at target. Palpitations documented but no arrhythmia confirmed.</em></p>
+</div>
+</details>
+
+<details>
+<summary>🩺 1.4 Endocrinology — <span class="status-known">✅ Good control</span></summary>
+<div class="section-content">
+<p>T2DM with improving glycemic control (HbA1c trend: 8.4% [2020] → 8.1% [2024] → 6.8% [2025]). See <a href="history_tables/1.4_endocrinology_2025-06-17.html">Endocrinology History</a> for full trend.</p>
+<table>
+  <thead><tr><th>Variable</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>HbA1c</td><td>6.8% (improved from 8.1% in 2024)</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/1.4_endocrinology.html">1.4_endocrinology.html</a></td></tr>
+    <tr><td>Fasting Glucose</td><td>132 mg/dL (pre-op)</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/surgical_admission.md">surgical_admission.md</a></td></tr>
+    <tr><td>T2DM Duration</td><td>5 years (2020 diagnosis)</td><td><span class="status-known">✅ Known</span></td><td><a href="raw/cardiology_consult.md">cardiology_consult.md</a></td></tr>
+    <tr><td>TSH</td><td>—</td><td><span class="status-notknown">❌ Not Known</span></td><td>—</td></tr>
+    <tr><td>Thyroid exam</td><td>Not documented</td><td><span class="status-notknown">❌ Not Known</span></td><td>—</td></tr>
+  </tbody>
+</table>
+<p><em>Assessment: Well-controlled T2DM for surgical candidacy. Metformin held morning of surgery per protocol. Perioperative glucose monitoring plan documented. History shows HbA1c improvement with lifestyle modification — patient compliant.</em></p>
+</div>
+</details>
+
+<details>
+<summary>🔬 7.3 Laboratory Medicine — <span class="status-known">✅ All WNL</span></summary>
+<div class="section-content">
+<table>
+  <thead><tr><th>Variable</th><th>Value</th><th>Status</th><th>Reference</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Hemoglobin</td><td>13.1 g/dL</td><td><span class="status-known">✅ Known</span></td><td>≥12 g/dL (female)</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Platelets</td><td>268 ×10³/μL</td><td><span class="status-known">✅ Known</span></td><td>150-400</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>WBC</td><td>7.2 ×10³/μL</td><td><span class="status-known">✅ Known</span></td><td>4.0-11.0</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Sodium</td><td>140 mEq/L</td><td><span class="status-known">✅ Known</span></td><td>136-145</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Potassium</td><td>4.2 mEq/L</td><td><span class="status-known">✅ Known</span></td><td>3.5-5.0</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Creatinine</td><td>0.82 mg/dL</td><td><span class="status-known">✅ Known</span></td><td>0.5-1.1 (female)</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>eGFR</td><td>88 mL/min/1.73m²</td><td><span class="status-known">✅ Known</span></td><td>≥60</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>PT/INR</td><td>12.8s / 1.0</td><td><span class="status-known">✅ Known</span></td><td>Normal coagulation</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>ALT / AST</td><td>42 / 35 U/L</td><td><span class="status-known">✅ Known</span></td><td>&lt;40 / &lt;35</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>ALP</td><td>110 U/L</td><td><span class="status-known">✅ Known</span></td><td>30-120 U/L</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Total Bilirubin</td><td>0.8 mg/dL</td><td><span class="status-known">✅ Known</span></td><td>&lt;1.2 mg/dL</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Lipase</td><td>45 U/L</td><td><span class="status-known">✅ Known</span></td><td>13-60 U/L</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+    <tr><td>Urinalysis</td><td>Normal, no protein</td><td><span class="status-known">✅ Known</span></td><td>Normal</td><td><a href="status_tables/7.3_laboratory_medicine.html">7.3_lab.html</a></td></tr>
+  </tbody>
+</table>
+<p><em>Assessment: All pre-operative labs within normal limits. Mild hepatic steatosis (ALT slightly elevated at 42 — borderline) consistent with abdominal US finding. Renal function excellent for age. Coagulation normal.</em></p>
+</div>
+</details>
+
+<details>
+<summary>🖼️ 7.1 Radiology/Imaging — <span class="status-known">✅ Key studies completed</span></summary>
+<div class="section-content">
+<table>
+  <thead><tr><th>Study</th><th>Date</th><th>Key Finding</th><th>Status</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Abdominal Ultrasound</td><td>2025-06-15</td><td>Cholelithiasis (largest stone 1.2cm), GB wall 3mm normal, CBD 4mm normal, mild hepatic steatosis</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/7.1_radiology_imaging.html">7.1_radiology.html</a></td></tr>
+    <tr><td>Echocardiogram</td><td>2025-05-20</td><td>LVEF 62%, normal LV, no valvular disease, PA pressure 28mmHg</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/7.1_radiology_imaging.html">7.1_radiology.html</a></td></tr>
+    <tr><td>Exercise Stress Test</td><td>2025-05-22</td><td>10 METs achieved. No ischemia. Duke +7.</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/7.1_radiology_imaging.html">7.1_radiology.html</a></td></tr>
+    <tr><td>CT Abdomen</td><td>—</td><td>Not indicated — US findings adequate</td><td><span class="status-notknown">❌ Not Known</span></td><td>—</td></tr>
+    <tr><td>Mammogram</td><td>2025-04-10</td><td>BI-RADS 2 (Benign)</td><td><span class="status-known">✅ Known</span></td><td><a href="status_tables/7.1_radiology_imaging.html">7.1_radiology.html</a></td></tr>
+    <tr><td>BRCA2 genetic testing</td><td>Pending (family history: sister BRCA2+)</td><td>Not yet performed</td><td><span class="status-uncertain">⚠️ Uncertain</span></td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details>
+<summary>🏥 2.1 General Surgery — <span class="status-known">✅ Procedure completed</span></summary>
+<div class="section-content">
+<p>Laparoscopic cholecystectomy completed 2025-06-18 without complication. EBL 20mL. Operative time 45 minutes. Discharged POD#2 (2025-06-20).</p>
+<table>
+  <thead><tr><th>Variable</th><th>Value</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>Primary Diagnosis</td><td>Symptomatic cholelithiasis</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>Procedure</td><td>Laparoscopic cholecystectomy</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>Operative Findings</td><td>Multiple mixed stones, no acute cholecystitis, no bile leak</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>EBL</td><td>20 mL</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>Surgical Risk (RCRI)</td><td>0 (low risk)</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>Post-operative complication</td><td>None documented</td><td><span class="status-known">✅ Known</span></td></tr>
+    <tr><td>Discharge Date</td><td>2025-06-20 (POD#2)</td><td><span class="status-known">✅ Known</span></td></tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<!-- Unknown Factors Audit -->
+<h2>Unknown Factors Audit</h2>
+<div class="unknown-audit">
+  <h3>Critical Unknowns</h3>
+  <ol>
+    <li><strong>BRCA2 Genetic Testing</strong> — Family history (sister BRCA2+) makes this clinically essential. If positive: annual MRI surveillance required, prophylactic surgery discussion. Source: <a href="status_tables/3.2_gynecology.html">3.2_gynecology.html</a></li>
+    <li><strong>Urine Microalbumin</strong> — Not ordered despite T2DM ×5 years. Required annually per ADA guidelines. Urinalysis showed no protein (reassuring but not equivalent). Source: <a href="status_tables/1.5_nephrology.html">1.5_nephrology.html</a></li>
+  </ol>
+
+  <h3>Routine Unknowns</h3>
+  <ul>
+    <li>TSH — No thyroid workup. Low priority given no symptoms, but recommended given T2DM and HbA1c history.</li>
+    <li>Bone density (DEXA scan) — Age 53, female — osteoporosis screening recommended.</li>
+    <li>Colonoscopy — Age-appropriate screening not documented.</li>
+    <li>HPV / Pap smear — No gynecologic screening documented in records.</li>
+  </ul>
+
+  <h3>Deprecated Values</h3>
+  <ul>
+    <li>HbA1c 8.1% (2024-06) — Superseded by 6.8% (2025-06-01). History: <a href="history_tables/1.4_endocrinology_2025-06-17.html">1.4_endocrinology history</a></li>
+    <li>HbA1c 7.8% (2022-06), 7.4% (2023-06), 8.4% (2020) — All in history table, trending toward control.</li>
+  </ul>
+
+  <h3>Uncertainties Requiring Clarification</h3>
+  <ul>
+    <li><strong>Palpitations</strong> — Reported but no arrhythmia documented. 24hr Holter monitor not ordered. Low priority post-operatively given RCRI=0 and normal ECG, but should be addressed at follow-up.</li>
+    <li><strong>Liver steatosis (mild)</strong> — Incidentally found on US. ALT mildly elevated at 42 (borderline). Formal NAFLD assessment not performed.</li>
+  </ul>
+</div>
+
+<!-- Clinical History -->
+<h2>Clinical History Timeline</h2>
+<table>
+  <thead><tr><th>Date</th><th>Event</th><th>Department</th></tr></thead>
+  <tbody>
+    <tr><td>2016</td><td>HTN diagnosed — Lisinopril initiated (dose titrated to 20mg by 2022)</td><td>Internal Medicine</td></tr>
+    <tr><td>2020</td><td>T2DM diagnosed — HbA1c 8.4% — Metformin 500mg BID initiated</td><td>Endocrinology</td></tr>
+    <tr><td>2022-06</td><td>HbA1c 7.8% — Metformin dose increase to 1000mg BID (see <a href="history_tables/1.4_endocrinology_2025-06-17.html">history</a>)</td><td>Endocrinology</td></tr>
+    <tr><td>2023</td><td>Atorvastatin 20mg initiated (familial risk profile: father CAD, sister BRCA2+)</td><td>Cardiology</td></tr>
+    <tr><td>2024-06</td><td>HbA1c 8.1% — glycemic worsening, dietitian re-referral. Metformin back to 500mg BID (GI tolerance)</td><td>Endocrinology</td></tr>
+    <tr><td>2025-04-10</td><td>Screening mammogram — BI-RADS 2 (Benign)</td><td>Radiology</td></tr>
+    <tr><td>2025-05-20</td><td>Echocardiogram — LVEF 62%, no structural disease</td><td>Cardiology</td></tr>
+    <tr><td>2025-05-22</td><td>Stress test — 10 METs, Duke +7 (low risk), no ischemia</td><td>Cardiology</td></tr>
+    <tr><td>2025-06-01</td><td>Lipid panel — LDL 88, HDL 52, TG 145 (well-controlled on Atorvastatin)</td><td>Laboratory Medicine</td></tr>
+    <tr><td>2025-06-01</td><td>HbA1c 6.8% — best glycemic control since diagnosis</td><td>Endocrinology</td></tr>
+    <tr><td>2025-06-05</td><td>Cardiology pre-op consult — RCRI=0, cleared for elective surgery</td><td>Cardiology</td></tr>
+    <tr><td>2025-06-15</td><td>Abdominal US — cholelithiasis (1.2cm stone), mild hepatic steatosis</td><td>Radiology</td></tr>
+    <tr><td>2025-06-17</td><td>Pre-op labs — all WNL</td><td>Laboratory Medicine</td></tr>
+    <tr><td>2025-06-18</td><td>Laparoscopic cholecystectomy — EBL 20mL, 45 min, no complication</td><td>General Surgery</td></tr>
+    <tr><td>2025-06-20</td><td>Discharged POD#2 — follow-up in 2 weeks</td><td>General Surgery</td></tr>
+  </tbody>
+</table>
+
+<!-- Cross-department synthesis -->
+<h2>Cross-Department Synthesis</h2>
+<div class="synthesis-box">
+  <p><strong>Cardiovascular-Metabolic Link:</strong> T2DM + HTN + hyperlipidemia form a metabolic syndrome constellation. Well-controlled at current snapshot (HbA1c 6.8%, BP 128/76, LDL 88). Future risk: BRCA2+ (pending) may influence preventive cardiology decisions if prophylactic surgery considered.</p>
+  <p><strong>Surgical-Metabolic Link:</strong> Perioperative glucose management documented (Metformin held, glucose 132 pre-op — acceptably controlled for elective surgery). No post-operative hyperglycemic complication documented.</p>
+  <p><strong>Genetic Risk:</strong> BRCA2+ testing pending based on sister's diagnosis. This is an outstanding action item that may affect Gynecology, Oncology, and General Surgery planning.</p>
+</div>
+
+<!-- Priority Actions -->
+<h2>Priority Action Items</h2>
+<table>
+  <thead><tr><th>#</th><th>Action</th><th>Priority</th><th>Department</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>BRCA2 genetic counseling and testing</td><td class="action-urgent">Urgent</td><td>Gynecology / Oncology</td></tr>
+    <tr><td>2</td><td>Urine microalbumin:creatinine ratio (annual DM screening)</td><td class="action-high">High</td><td>PCP / Nephrology</td></tr>
+    <tr><td>3</td><td>Post-op surgical wound check — 2-week follow-up</td><td class="action-high">High</td><td>General Surgery</td></tr>
+    <tr><td>4</td><td>Palpitations workup — 24hr Holter monitor at follow-up</td><td class="action-high">High</td><td>Cardiology</td></tr>
+    <tr><td>5</td><td>TSH at next routine labs</td><td class="action-routine">Routine</td><td>PCP</td></tr>
+    <tr><td>6</td><td>DEXA scan (osteoporosis screening, age 53 female)</td><td class="action-routine">Routine</td><td>PCP / Endocrinology</td></tr>
+    <tr><td>7</td><td>Hepatic steatosis follow-up — repeat LFTs in 6 months</td><td class="action-routine">Routine</td><td>Gastroenterology</td></tr>
+    <tr><td>8</td><td>Resume Metformin post-operatively when tolerating diet</td><td class="action-high">High</td><td>PCP</td></tr>
+  </tbody>
+</table>
+
+<p style="margin-top:32px;font-size:12px;color:#999">Generated: 2025-06-20 | Source documents: 4 | Status tables: 36 | History tables: 1 (Endocrinology) | Logs: <a href="logs/">logs/</a> | Profile by PatientProfileBuilder skill</p>
+</body>
+</html>

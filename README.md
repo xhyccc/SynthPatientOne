@@ -65,9 +65,9 @@ SynthPatientOne takes real or mock patient health records and produces:
 | # | Skill | Type | Input | Output |
 |---|---|---|---|---|
 | 1 | `PatientProfileBuilder` | Script + LLM | Raw records folder | `{id}_profile/` |
-| 2 | `MDTBuilder` | Pure LLM | `{id}_profile/` | `{id}_profile/mdt/` |
+| 2 | `MDTBuilder` | Pure LLM | `{id}_profile/` | `{id}_MDT/` |
 | 3 | `PatientSimulator` | Pure LLM | `{id}_profile/` | `{id}_simulation/` |
-| 4 | `MDTEval` | Pure LLM | `{id}_simulation/` + `{id}_profile/mdt/` | `{id}_MDT_eval/` |
+| 4 | `MDTEval` | Pure LLM | `{id}_simulation/` + `{id}_MDT/` | `{id}_MDT_eval/` |
 
 ## Quick Start
 
@@ -99,7 +99,7 @@ ls patient_smoke_test_profile/
    → produces patient_001_profile/
 
 2. @MDTBuilder on patient_001_profile/
-   → produces patient_001_profile/mdt/
+   → produces patient_001_MDT/
 
 3. @PatientSimulator on patient_001_profile/ --N 20
    → produces patient_001_simulation/
