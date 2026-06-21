@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4.1 General Pediatrics — Status Table</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1100px; margin: 20px auto; padding: 0 20px; line-height: 1.5; }
+h1 { border-bottom: 2px solid #333; padding-bottom: 6px; }
+h2 { border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 24px; }
+.instructions { background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 16px 0; font-size: 13px; }
+.instructions strong { color: #856404; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; vertical-align: top; }
+th { background: #f0f0f0; font-weight: 600; }
+tr:nth-child(even) td { background: #fafafa; }
+.fill-me { color: #999; font-style: italic; }
+.status-known { background: #d4edda !important; color: #155724; }
+.status-uncertain { background: #fff3cd !important; color: #856404; }
+.status-deprecated { background: #e2e3e5 !important; color: #383d41; }
+.status-notknown { background: #f8d7da !important; color: #721c24; }
+.department-scope { color: #666; font-style: italic; }
+@media print { body { max-width: 100%; } .instructions { display: none; } }
+</style>
+</head>
+<body>
+
+<h1>4.1 General Pediatrics</h1>
+<p><strong>First-Tier Department:</strong> 4. Pediatrics</p>
+<p class="department-scope"><strong>Scope:</strong> Routine care, childhood illnesses.</p>
+
+<div class="instructions">
+<strong>⚠️ LLM Filling Instructions:</strong>
+<ol>
+  <li><strong>Determine time window first.</strong> Default = most recent encounter or last 6 months, whichever yields more data. Active hospitalization = entire admission.</li>
+  <li>Fill only values <strong>within the time window</strong>.</li>
+  <li>Values OUTSIDE window → replace status column with <code>&lt;td class="status-deprecated"&gt;📅 Deprecated&lt;/td&gt;</code>, leave Latest Value blank, note old value + date in Comment with cross-reference to history table.</li>
+  <li>Variable not mentioned → <code>&lt;td class="status-notknown"&gt;❌ Not Known&lt;/td&gt;</code>.</li>
+  <li>Known in-window → <code>&lt;td class="status-known"&gt;✅ Known&lt;/td&gt;</code>.</li>
+  <li>Conflicting in-window → <code>&lt;td class="status-uncertain"&gt;⚠️ Uncertain&lt;/td&gt;</code>, cite both sources in Comment.</li>
+  <li><strong>Value Age:</strong> how old within window (e.g., "3 days ago", "During admission").</li>
+  <li>Every filled value must cite a source filename in <code>raw/</code>.</li>
+  <li>Never fabricate. Remove all <code>&lt;!-- FILL_ME: ... --&gt;</code> comments after filling.</li>
+</ol>
+</div>
+
+<h2>Status Table — Time-Window Snapshot</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Variable</th>
+      <th>Expected</th>
+      <th>Latest Value</th>
+      <th>Value Age</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Source</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Growth Chart — Weight Percentile</td>
+      <td>N/A for adult patients</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Growth Chart — Height Percentile</td>
+      <td>N/A for adult patients</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Developmental Milestones</td>
+      <td>N/A for adult patients</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Vaccination Record</td>
+      <td>Not applicable / up to date</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Vision Screening</td>
+      <td>Not applicable</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Hearing Screening</td>
+      <td>Not applicable</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Lead Screening</td>
+      <td>Not applicable</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Common Childhood Illnesses History</td>
+      <td>Not applicable</td>
+      <td class="fill-me"><!-- FILL_ME: Latest Value (with units, or "—" if no in-window value) -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Value Age (e.g. "3 days ago", "During admission", "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Status: Known / Uncertain / Deprecated / NotKnown -->❌ Not Known</td>
+      <td class="fill-me"><!-- FILL_ME: Date (YYYY-MM-DD or "During admission" or "—") -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Source filename in raw/ -->—</td>
+      <td class="fill-me"><!-- FILL_ME: Comment (clinical note, trend, deprecation reason, cross-ref) --></td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Generated profile outputs
+*_profile/
+*_simulation/
+*_MDT_eval/
+.DS_Store
+__pycache__/

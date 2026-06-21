@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulated Patient Profile — {{patient_id}} (Sim {{sim_id}} / {{N}})</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1200px; margin: 20px auto; padding: 0 20px; line-height: 1.5; color: #333; }
+  h1 { border-bottom: 3px solid #6c3483; padding-bottom: 8px; color: #6c3483; }
+  h2 { border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 24px; color: #2c3e50; }
+  .sim-header { background: #f5eef8; border: 1px solid #d2b4de; padding: 16px; border-radius: 6px; margin: 16px 0; }
+  .scenario-label { display: inline-block; background: #6c3483; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .status-known { color: #1a7a1a; background: #e6ffe6; }
+  .status-simulated { color: #6c3483; background: #f5eef8; }
+  .status-uncertain { color: #b8860b; background: #fff8e1; }
+  .reasoning-block { background: #f8f9fa; border-left: 4px solid #6c3483; padding: 12px 16px; margin: 8px 0; font-size: 13px; }
+  .reasoning-block strong { color: #6c3483; }
+  .simulated-value { color: #6c3483; font-weight: bold; }
+  .confidence-high { color: #1a7a1a; }
+  .confidence-medium { color: #b8860b; }
+  .confidence-low { color: #c0392b; }
+  details { margin: 16px 0; }
+  summary { cursor: pointer; font-weight: 600; font-size: 16px; padding: 8px; background: #f0f0f0; border-radius: 4px; }
+  summary:hover { background: #e0e0e0; }
+  .completeness-bar { height: 20px; background: #e0e0e0; border-radius: 10px; overflow: hidden; margin: 8px 0; }
+  .completeness-fill { height: 100%; background: linear-gradient(90deg, #27ae60, #6c3483); border-radius: 10px; }
+  .seed-info { font-family: monospace; font-size: 12px; color: #666; }
+  @media print { body { max-width: 100%; } details { break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>Simulated Patient Profile — {{patient_id}}</h1>
+
+<div class="sim-header">
+  <p><span class="scenario-label">{{scenario_label}}</span></p>
+  <p><strong>Simulation:</strong> {{sim_id}} / {{N}}</p>
+  <p><strong>Seed:</strong> <span class="seed-info">{{seed}}</span></p>
+  <p><strong>Generated:</strong> {{gen_date}}</p>
+  <p><strong>Model:</strong> {{model}}</p>
+  <p><strong>Completeness:</strong> <span id="completeness-pct">100%</span> (all variables filled)</p>
+  <div class="completeness-bar"><div class="completeness-fill" style="width: 100%;"></div></div>
+  <p><strong>Simulated variables:</strong> {{simulated_count}} of {{total_count}} ({{pct_simulated}}%)</p>
+</div>
+
+<!-- ================================================================ -->
+<!-- SECTION 1: Original Status (from profile) -->
+<!-- ================================================================ -->
+<details>
+<summary>📋 Section 1 — Original Status (from profile)</summary>
+
+<p><em>Unmodified status tables from {{patient_id}}_profile/status_tables/. Read-only reference.</em></p>
+<p>✅ Known: {{known_count}} &nbsp;|&nbsp; ⚠️ Uncertain: {{uncertain_count}} &nbsp;|&nbsp; 📅 Deprecated: {{deprecated_count}} &nbsp;|&nbsp; ❌ Not Known: {{notknown_count}}</p>
+
+{{original_status_section}}
+<!-- LLM: For each department, render the original status table rows here.
+     Known values in .status-known, unknowns left as-is. -->
+
+</details>
+
+<!-- ================================================================ -->
+<!-- SECTION 2: Simulated Profile -->
+<!-- ================================================================ -->
+<details open>
+<summary>🔮 Section 2 — Simulated Profile (completed)</summary>
+
+<p><em>All variables now have values. ✅ Known = from original profile. 🔮 Simulated = predicted by LLM.</em></p>
+
+{{simulated_profile_section}}
+<!-- LLM: For each of the 36 departments, render a table with ALL variables filled.
+     Known values: unchanged from original, class="status-known"
+     Simulated values: class="status-simulated", value in <span class="simulated-value">
+     Columns: #, Variable, Expected, Original Status, Original Value, Simulated Value, Value Age, Final Status, Source, Reasoning, Confidence
+-->
+
+</details>
+
+<!-- ================================================================ -->
+<!-- SECTION 3: Reasoning Traces -->
+<!-- ================================================================ -->
+<details>
+<summary>🧠 Section 3 — Reasoning Traces (from status/history to simulation)</summary>
+
+<p><em>For every 🔮 Simulated variable: how was the prediction made?</em></p>
+
+{{reasoning_traces_section}}
+<!-- LLM: For EACH simulated variable, generate a structured reasoning block:
+
+<div class="reasoning-block">
+  <strong>1.1 Cardiology — Row 3: Lipid Panel — LDL</strong><br>
+  <strong>Original Status:</strong> ❌ Not Known<br>
+  <strong>Factors Considered:</strong> demographics, diagnoses, history, correlations<br>
+  <strong>Prediction Method:</strong> <span class="confidence-medium">Disease-correlated</span><br>
+  <strong>Distribution:</strong> Normal(μ=125, σ=25)<br>
+  <strong>Result:</strong> <span class="simulated-value">132 mg/dL</span><br>
+  <strong>Confidence:</strong> <span class="confidence-medium">Medium</span><br>
+  <strong>Alternative Considered:</strong> 98 mg/dL (rejected — no statin prescribed)<br>
+  <strong>Clinical Rationale:</strong> [detailed explanation]
+</div>
+
+-->
+
+</details>
+
+<!-- ================================================================ -->
+<!-- SECTION 4: Combined History -->
+<!-- ================================================================ -->
+<details>
+<summary>📜 Section 4 — Combined History (original + simulated)</summary>
+
+<p><em>Original history tables from profile, plus 🔮 simulated events that would have occurred to produce the predicted current state.</em></p>
+
+{{combined_history_section}}
+<!-- LLM: For each department with history, show:
+     1. Original history rows (from history_tables/)
+     2. 🔮 Simulated history rows that fill gaps between last known events and current simulated state
+     Simulated rows marked with class="status-simulated"
+-->
+
+</details>
+
+<p style="margin-top: 40px; color: #999; font-size: 11px;">
+  Generated by PatientSimulator — Seed: {{seed}} — {{gen_date}}
+</p>
+
+</body>
+</html>

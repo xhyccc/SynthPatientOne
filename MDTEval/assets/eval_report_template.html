@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MDT Evaluation — {{patient_id}} (Sim {{sim_id}} / {{N}})</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1100px; margin: 20px auto; padding: 0 20px; line-height: 1.5; color: #333; }
+  h1 { border-bottom: 3px solid #1a5276; padding-bottom: 8px; }
+  h2 { border-bottom: 1px solid #999; padding-bottom: 4px; margin-top: 28px; }
+  .eval-header { background: #eaf2f8; border: 1px solid #aed6f1; padding: 16px; border-radius: 6px; margin: 16px 0; }
+  .score-excellent { color: #1a7a1a; background: #d5f5e3; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+  .score-good { color: #2d7d2d; background: #e6ffe6; padding: 2px 8px; border-radius: 3px; }
+  .score-adequate { color: #b8860b; background: #fff8e1; padding: 2px 8px; border-radius: 3px; }
+  .score-needs-improvement { color: #d35400; background: #fdebd0; padding: 2px 8px; border-radius: 3px; }
+  .score-poor { color: #c0392b; background: #fdedec; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+  .overall-score { font-size: 48px; font-weight: bold; text-align: center; padding: 20px; border-radius: 12px; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f0f0f0; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .metric-row td:first-child { font-weight: 600; }
+  details { margin: 16px 0; }
+  summary { cursor: pointer; font-weight: 600; font-size: 15px; padding: 8px; background: #f0f0f0; border-radius: 4px; }
+  summary:hover { background: #e0e0e0; }
+  .rationale { font-size: 12px; color: #666; margin: 4px 0 0 16px; }
+  .sensitivity-note { background: #f5eef8; border-left: 4px solid #6c3483; padding: 8px 12px; font-size: 12px; margin: 8px 0; }
+  .seed-info { font-family: monospace; font-size: 11px; color: #888; }
+  @media print { body { max-width: 100%; } details { break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>MDT Evaluation Report — {{patient_id}}</h1>
+
+<div class="eval-header">
+  <p><strong>Simulation:</strong> {{sim_id}} / {{N}} | <strong>Seed:</strong> <span class="seed-info">{{seed}}</span></p>
+  <p><strong>Scenario:</strong> {{scenario_label}} | <strong>MDT Decision:</strong> {{mdt_outcome}}</p>
+  <p><strong>Evaluated:</strong> {{eval_date}} | <strong>Model:</strong> {{model}}</p>
+</div>
+
+<div class="overall-score" style="background: {{overall_color}}; color: {{overall_text_color}};">
+  {{overall_score}} / 100
+  <div style="font-size: 16px; margin-top: 8px;">{{overall_label}}</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- DIMENSION 1 -->
+<!-- ================================================================ -->
+<details open>
+<summary>🩺 Dimension 1: Clinical Outcomes &amp; Efficacy — Score: {{d1_score}}/100</summary>
+
+<table>
+  <thead><tr><th>Metric</th><th>Weight</th><th>Score</th><th>Observed</th><th>Benchmark</th></tr></thead>
+  <tbody>
+    <tr class="metric-row">
+      <td>Diagnostic Concordance</td><td>30%</td>
+      <td class="{{d1_1_class}}">{{d1_1_score}}</td>
+      <td>{{d1_1_observed}}</td><td>{{d1_1_benchmark}}</td>
+    </tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d1_1_rationale}}</td></tr>
+
+    <tr class="metric-row">
+      <td>Guideline Concordance</td><td>25%</td>
+      <td class="{{d1_2_class}}">{{d1_2_score}}</td>
+      <td>{{d1_2_observed}}</td><td>{{d1_2_benchmark}}</td>
+    </tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d1_2_rationale}}</td></tr>
+
+    <tr class="metric-row">
+      <td>Predicted Morbidity Risk</td><td>25%</td>
+      <td class="{{d1_3_class}}">{{d1_3_score}}</td>
+      <td>{{d1_3_observed}}</td><td>{{d1_3_benchmark}}</td>
+    </tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d1_3_rationale}}</td></tr>
+
+    <tr class="metric-row">
+      <td>Predicted Mortality Risk</td><td>20%</td>
+      <td class="{{d1_4_class}}">{{d1_4_score}}</td>
+      <td>{{d1_4_observed}}</td><td>{{d1_4_benchmark}}</td>
+    </tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d1_4_rationale}}</td></tr>
+  </tbody>
+</table>
+</details>
+
+<!-- ================================================================ -->
+<!-- DIMENSION 2 -->
+<!-- ================================================================ -->
+<details>
+<summary>⚙️ Dimension 2: Process &amp; Operational Efficiency — Score: {{d2_score}}/100</summary>
+<table>
+  <thead><tr><th>Metric</th><th>Weight</th><th>Score</th><th>Observed</th><th>Benchmark</th></tr></thead>
+  <tbody>
+    <tr class="metric-row"><td>Time-to-Treatment Estimate</td><td>25%</td><td class="{{d2_1_class}}">{{d2_1_score}}</td><td>{{d2_1_observed}}</td><td>{{d2_1_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d2_1_rationale}}</td></tr>
+    <tr class="metric-row"><td>Implementation Feasibility</td><td>30%</td><td class="{{d2_2_class}}">{{d2_2_score}}</td><td>{{d2_2_observed}}</td><td>{{d2_2_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d2_2_rationale}}</td></tr>
+    <tr class="metric-row"><td>Data Completeness</td><td>25%</td><td class="{{d2_3_class}}">{{d2_3_score}}</td><td>{{d2_3_observed}}</td><td>{{d2_3_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d2_3_rationale}}</td></tr>
+    <tr class="metric-row"><td>Quorum &amp; Attendance</td><td>20%</td><td class="{{d2_4_class}}">{{d2_4_score}}</td><td>{{d2_4_observed}}</td><td>{{d2_4_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d2_4_rationale}}</td></tr>
+  </tbody>
+</table>
+</details>
+
+<!-- ================================================================ -->
+<!-- DIMENSION 3 -->
+<!-- ================================================================ -->
+<details>
+<summary>👤 Dimension 3: Patient Experience &amp; Quality of Life — Score: {{d3_score}}/100</summary>
+<table>
+  <thead><tr><th>Metric</th><th>Weight</th><th>Score</th><th>Observed</th><th>Benchmark</th></tr></thead>
+  <tbody>
+    <tr class="metric-row"><td>Predicted Functional Outcome</td><td>40%</td><td class="{{d3_1_class}}">{{d3_1_score}}</td><td>{{d3_1_observed}}</td><td>{{d3_1_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d3_1_rationale}}</td></tr>
+    <tr class="metric-row"><td>Shared Decision-Making Quality</td><td>35%</td><td class="{{d3_2_class}}">{{d3_2_score}}</td><td>{{d3_2_observed}}</td><td>{{d3_2_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d3_2_rationale}}</td></tr>
+    <tr class="metric-row"><td>Psychosocial Support Adequacy</td><td>25%</td><td class="{{d3_3_class}}">{{d3_3_score}}</td><td>{{d3_3_observed}}</td><td>{{d3_3_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d3_3_rationale}}</td></tr>
+  </tbody>
+</table>
+</details>
+
+<!-- ================================================================ -->
+<!-- DIMENSION 4 -->
+<!-- ================================================================ -->
+<details>
+<summary>🤝 Dimension 4: Team Dynamics &amp; Governance — Score: {{d4_score}}/100</summary>
+<table>
+  <thead><tr><th>Metric</th><th>Weight</th><th>Score</th><th>Observed</th><th>Benchmark</th></tr></thead>
+  <tbody>
+    <tr class="metric-row"><td>Psychological Safety Indicators</td><td>30%</td><td class="{{d4_1_class}}">{{d4_1_score}}</td><td>{{d4_1_observed}}</td><td>{{d4_1_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d4_1_rationale}}</td></tr>
+    <tr class="metric-row"><td>Meeting Efficiency</td><td>35%</td><td class="{{d4_2_class}}">{{d4_2_score}}</td><td>{{d4_2_observed}}</td><td>{{d4_2_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d4_2_rationale}}</td></tr>
+    <tr class="metric-row"><td>Documentation Quality</td><td>35%</td><td class="{{d4_3_class}}">{{d4_3_score}}</td><td>{{d4_3_observed}}</td><td>{{d4_3_benchmark}}</td></tr>
+    <tr><td colspan="5" class="rationale"><strong>Rationale:</strong> {{d4_3_rationale}}</td></tr>
+  </tbody>
+</table>
+</details>
+
+<!-- ================================================================ -->
+<!-- SENSITIVITY -->
+<!-- ================================================================ -->
+<details>
+<summary>🎯 Sensitivity Analysis — Top Variable Drivers</summary>
+
+<table>
+  <thead><tr><th>Rank</th><th>Variable</th><th>Department</th><th>Impact on Score</th></tr></thead>
+  <tbody>{{sensitivity_rows}}</tbody>
+</table>
+</details>
+
+<p style="margin-top: 40px; color: #999; font-size: 11px;">
+  Generated by MDTEval — Seed: {{eval_seed}} — {{eval_date}}
+</p>
+
+</body>
+</html>
