@@ -76,6 +76,29 @@ department-organized clinical profile.
 
 ---
 
+
+---
+
+## Ingest → Audit Handoff Contract
+
+After Phase 1 (ingest), the LLM MUST verify these before beginning Phase 2 audit:
+
+### Checklist
+1. **raw/combined_records.md exists** and contains merged text from all source documents.
+2. **Language detection is complete** — each document in combined_records.md has a  tag.
+3. **All 36 HTML templates are copied** into status_tables/ (with <!-- FILL_ME --> markers).
+4. **All 36 HTML templates are copied** into history_tables/.
+5. **logs/ folder exists** with empty translation.txt, form_filling.txt, and profile_gen.txt.
+
+### Handoff Data Structure
+The LLM reads raw/combined_records.md as the primary input. Each document section begins with:
+
+
+### Failure Modes
+- If combined_records.md is empty: re-run Phase 1 with --ocr flag.
+- If languages tag shows non-English: translation to English is REQUIRED before audit. Log all translations to logs/translation.txt.
+- If status_tables/ has fewer than 36 files: re-run Phase 2.
+
 ## Pipeline Phases
 
 ### Phase 1 — INGEST (scripts)

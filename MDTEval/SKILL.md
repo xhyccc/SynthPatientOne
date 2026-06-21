@@ -112,6 +112,26 @@ Full framework in `references/eval_framework.md`.
 2. Read `{patient_id}_simulation/simulation_manifest.json` — get all N simulation seeds and scenarios.
 3. Create `{patient_id}_MDT_eval/` with all subdirectories.
 
+
+### Scenario-to-Score Mapping Rationale
+
+For each simulation scenario, the LLM MUST explain WHY the assigned score differs from the baseline:
+
+1. **Baseline score** = evaluation on the original profile (sim_01 or the scenario closest to the original data).
+2. **Delta analysis** for each subsequent simulation:
+   - Which simulated variables changed from baseline?
+   - How did each changed variable affect each dimension score?
+   - Was the effect linear (small change → small score delta) or threshold (variable crosses a clinical threshold → large score drop)?
+
+Example: If sim_02 simulates LDL=145 (vs baseline LDL=88), and sim_02's D1 score drops by 10 points:
+  → "LDL increase from 88→145 crosses the <100 guideline threshold, reducing Guideline Concordance from 95→80 and driving a 10-point D1 drop. This is a threshold effect, not linear."
+
+### Evaluation Sensitivity Table
+
+| Variable | Baseline | Worst-Case Simulated | Score Delta | Threshold? |
+|---|---|---|---|---|
+| LDL | 88 | 145 | -10 D1 | Yes (<100 threshold) |
+| HbA1c | 6.8% | 8.5% | -8 D1 | Yes (<7.0% target) |
 ### Phase 1 — Per-Simulation Evaluation
 
 For each simulation `i` (1 to N):
@@ -155,6 +175,21 @@ Write `logs/eval_summary.log` with aggregate statistics and evaluation methodolo
 | 40-59 | Orange | Needs Improvement |
 | 0-39 | Red | Poor |
 
+
+### Dimension Weight Justification
+
+The overall MDT score is a weighted average: **0.40×D1 + 0.25×D2 + 0.20×D3 + 0.15×D4**
+
+**Rationale for weights:**
+
+| Dimension | Weight | Why |
+|---|---|---|
+| D1: Clinical Outcomes | 40% | Patient health outcomes are the primary purpose of MDT. Diagnostic accuracy and treatment appropriateness directly affect morbidity and mortality. |
+| D2: Process Efficiency | 25% | Timely, feasible care delivery affects real-world outcomes. An excellent clinical plan that takes 6 months to execute is a failed plan. |
+| D3: Patient Experience | 20% | Patient-centered care is a core quality domain. Shared decision-making and psychosocial support affect adherence and satisfaction. |
+| D4: Team Dynamics | 15% | Team function is an enabler of D1-D3, not an end in itself. A well-functioning team that makes wrong clinical decisions still harms patients. |
+
+If the MDT context is PURELY DIAGNOSTIC (no treatment decision), adjust to: 0.50×D1 + 0.20×D2 + 0.15×D3 + 0.15×D4.
 **Weighted Overall:** `0.40×D1 + 0.25×D2 + 0.20×D3 + 0.15×D4`
 
 ---

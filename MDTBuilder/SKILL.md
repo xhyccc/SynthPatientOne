@@ -86,6 +86,12 @@ color-coded consensus badges, evidence citation links, and a patient-facing summ
 2. Create `{patient_id}_MDT/` folder with all subdirectories.
 3. Read `references/templates/reasoning_phase1.md` through `reasoning_phase5.md` for detailed prompts.
 
+
+### Department Selection Algorithm
+
+The LLM MUST use this algorithm to select participating departments:
+
+
 ### Phase 1 — Team Formation
 
 Using `references/templates/reasoning_phase1.md`:
@@ -110,6 +116,23 @@ Using `references/templates/reasoning_phase2.md`:
 
 Write: `reasoning/phase2_pre_meeting/`
 
+
+### Dissenting Opinion Protocol
+
+If a department disagrees with the consensus, the LLM MUST:
+
+1. **Record the dissent explicitly** in phase3_meeting.md and mdt_solution.html Section 3.4:
+   - Which department dissents
+   - What their recommendation was
+   - Why they were overruled (evidence, risk comparison, patient factors)
+   - Whether the dissenting department accepts the chair's decision or maintains their objection
+
+2. **Classify the dissent severity:**
+   - **Level 1 (Procedural):** Agrees with outcome but disagrees on method/timeline. No patient safety concern.
+   - **Level 2 (Clinical):** Disagrees on treatment choice. Different risk/benefit calculus. Should be flagged for audit.
+   - **Level 3 (Safety):** Dissenting department believes the chosen intervention poses patient harm. MUST be escalated to clinical governance.
+
+3. **Escalation path for Level 3 dissents:** Document in mdt_audit.log with URGENT flag.
 ### Phase 3 — Meeting
 
 Using `references/templates/reasoning_phase3.md`:

@@ -69,6 +69,21 @@ testing, and ML training data augmentation.
 
 ---
 
+
+### Distribution Sampling Guidance
+
+When predicting unknown variables, the LLM MUST specify the distribution type and parameters:
+
+| Variable Category | Default Distribution | Parameter Source |
+|---|---|---|
+| Lab values (continuous) | Normal(μ, σ) | μ = population mean adjusted for demographics; σ = population SD |
+| Lab values (bounded, e.g., eGFR) | Truncated Normal(μ, σ, min, max) | Truncate at physiological limits |
+| Binary variables (diagnosis Y/N) | Bernoulli(p) | p = prevalence adjusted for risk factors |
+| Ordinal (tumor stage, NYHA class) | Categorical with ordered probabilities | Clinical staging distribution |
+| Time-to-event (survival) | Exponential(λ) or Weibull | λ from literature |
+
+**Seed encoding:** The seed string (e.g., "sim_01_20250621_a1b") determines all random draws.
+If two simulations with the same seed produce different values, the simulation is INVALID.
 ## Simulation Methodology
 
 Full methodology in `references/simulation_protocol.md`. Summary:
@@ -125,6 +140,12 @@ For **each** simulation `i` (1 to N):
 **Step 2a. Assign scenario and seed.**
 - Label the scenario (e.g., "Stable, Well-Controlled", "Progressive Decline").
 - Generate a unique seed: `sim_{i:0{padding}d}_{YYYYMMDD}_{random3}`.
+
+
+### Per-Variable Prediction Trace Format
+
+For EVERY simulated variable, the LLM MUST record this structured trace in profile_simulation_{i}.html Section 3:
+
 
 **Step 2b. Predict unknown variables.**
 For each variable marked ❌ or 📅:
