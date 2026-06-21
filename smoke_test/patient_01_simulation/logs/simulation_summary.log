@@ -1,0 +1,59 @@
+SIMULATION SUMMARY LOG — patient_01
+Generated: 2025-06-21
+Profile source: patient_01_profile/
+N simulations: 2
+======================================================================
+
+=== INPUT ANALYSIS ===
+Total departments analyzed: 36
+Departments with variables to simulate: 4 (Cardiology, Pulmonology, Endocrinology, Nephrology)
+Total variables per simulation: 12
+  ❌ Not Known → to predict from scratch: 6 (Echocardiogram EF, BNP, PFT FEV1/FVC/FVC, Urine Microalbumin)
+  📅 Deprecated → to predict using history as anchor: 3 (LDL, HDL, Triglycerides)
+  Derived/correlated: 3 (TSH, Vitamin D, eGFR trajectory)
+  ✅ Known → preserved unchanged: 24
+
+=== SIMULATION ROSTER ===
+| Sim | Seed                  | Scenario               | LDL    | EF   | FEV1 | eGFR | uACR      |
+|-----|------------------------|------------------------|--------|------|------|------|-----------|
+| 01  | sim_01_20250621_a1b   | Stable, Well-Controlled | 98     | 58%  | 62%  | 85   | 22 mg/gCr |
+| 02  | sim_02_20250621_c3d   | Progressive Decline     | 145    | 48%  | 42%  | 68   | 85 mg/gCr |
+
+=== AGGREGATE STATISTICS ===
+LDL (simulated):       mean=121.5  range=[98, 145]   key threshold: 100 mg/dL (AHA/ACC statin cutoff for high-risk)
+HDL (simulated):       mean=38.0   range=[34, 42]    key threshold: 40 mg/dL (low HDL ASCVD risk)
+TG (simulated):        mean=230.0  range=[180, 280]  key threshold: 200 mg/dL
+EF (simulated):        mean=53.0   range=[48, 58]    key threshold: 50% (HFmrEF), 40% (HFrEF)
+FEV1 (simulated):      mean=52.0   range=[42, 62]    key threshold: 50% (GOLD 2→3 transition)
+eGFR (simulated):      mean=76.5   range=[68, 85]    key threshold: 60 (SGLT2i safety), 45 (Metformin risk)
+uACR (simulated):      mean=53.5   range=[22, 85]    key threshold: 30 mg/gCr (microalbuminuria onset)
+
+=== VARIABLES WITH HIGHEST VARIANCE ===
+1. LDL: range 47 mg/dL — 15 months without statin allows significant variability. Threshold-crossing (sim_02 LDL 145 crosses the 100 threshold).
+2. FEV1: range 20% predicted — GOLD stage changes between sims (GOLD 2 vs GOLD 3). Threshold-crossing: most clinically impactful variable.
+3. EF: range 10% — HFmrEF (EF 48%) vs preserved EF (58%). Changes cardiac risk categorization significantly.
+4. eGFR: range 17 mL/min — changes SGLT2i safety profile. Not yet threshold-crossing for contraindication but approaching (sim_02 eGFR 68).
+
+=== VARIABLES CONSISTENT ACROSS SIMULATIONS ===
+- Troponins: Not simulated (known negative ×3) — preserved in both sims
+- ECG: Normal sinus — preserved in both sims
+- BMI: 31.2 — preserved in both sims
+- Current medications: Unchanged (Lisinopril, Metformin, Tiotropium, Albuterol PRN)
+- TSH: ~2.5–4.1 (both normal range in sim_01, borderline in sim_02 only)
+
+=== DISTRIBUTION OF SCENARIOS ===
+- Stable/Controlled: 1 simulation (50%)
+- Progressive Decline: 1 simulation (50%)
+
+Note: With N=2, the distribution is illustrative. For clinical use, N≥20 is recommended to cover the full probability mass of COPD progression rates, dyslipidemia trajectories, and HF development.
+
+=== INTERNAL CONSISTENCY VERIFICATION ===
+sim_01: PASS — LDL 98 consistent with TG 180 (proportional improvement); EF 58 consistent with BNP 45 (no HF); eGFR 85 consistent with uACR 22 (no nephropathy).
+sim_02: PASS — LDL 145 consistent with TG 280 (worsening dyslipidemia); EF 48 consistent with BNP 320 (HFmrEF); eGFR 68 consistent with uACR 85 (microalbuminuria onset). All cross-variable checks passed.
+
+=== KEY FINDINGS FOR MDT EVALUATION ===
+1. The MDT's decision to "diagnose first, treat second" is VALIDATED in sim_01 (no urgent findings).
+2. The MDT's decision is PARTIALLY INVALIDATED in sim_02: FEV1 42% makes ICS/LABA urgent (not conditional); EF 48% changes cardiac risk tier; SGLT2i safety is time-sensitive.
+3. Critical sensitivity driver: FEV1 threshold (GOLD 2 vs GOLD 3). A 20% difference in FEV1 changes the entire respiratory treatment plan.
+4. Second sensitivity driver: EF threshold. EF 48% vs 58% changes cardiac risk from "monitor" to "treat HFmrEF."
+5. Recommendation for MDT: PFTs and Echo should be obtained ASAP (1 week, not 2 weeks) given the high clinical sensitivity of these results.

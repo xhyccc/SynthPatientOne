@@ -91,8 +91,26 @@ color-coded consensus badges, evidence citation links, and a patient-facing summ
 
 The LLM MUST use this algorithm to select participating departments:
 
+```
+1. PRIMARY DIAGNOSES: Include all departments directly managing the patient's active diagnoses.
+   (e.g., COPD → Pulmonology; HTN → Cardiology; DM → Endocrinology)
 
-### Phase 1 — Team Formation
+2. CRITICAL UNKNOWNS: Include departments whose missing data is flagged Critical in the
+   Unknown Factors Audit of profile.html.
+   (e.g., missing lipid panel → Cardiology; missing echo → Cardiology/Radiology)
+
+3. SURGICAL / PROCEDURAL RISK: If any surgical or invasive intervention is being considered,
+   include the relevant surgical specialty + Anesthesiology.
+
+4. CROSS-DEPARTMENT DEPENDENCIES: Include departments linked by the Cross-Department Synthesis
+   section of profile.html (e.g., Nephrology if Cardiology finds CKD implications).
+
+5. MINIMUM TEAM: Always include at least one department from First-Tier area 1 (Internal Medicine)
+   and 7.1 Radiology/Imaging if any imaging findings are relevant.
+
+6. EXCLUSION RULE: Exclude departments with ONLY ❌ Not Known entries and no plausible connection
+   to the case. Document the exclusion rationale.
+```
 
 Using `references/templates/reasoning_phase1.md`:
 1. Determine MDT scope from key diagnoses and critical unknowns.
@@ -151,6 +169,11 @@ Using `references/templates/reasoning_phase4.md`:
 2. Patient communication summary in plain language.
 3. Outcome tracking metrics.
 4. MDT re-evaluation schedule.
+5. **Post-Operative / Post-Intervention Contingency Plan** (for surgical or procedural cases):
+   - Document known complication rates for the recommended intervention (e.g., bile leak rate for cholecystectomy, DVT risk for major surgery).
+   - Specify escalation pathways: which department manages each complication and how.
+   - Include DVT/VTE risk stratification (Caprini score or equivalent) if applicable.
+   - Document perioperative medication protocols (e.g., Metformin hold for DM patients).
 
 Write: `reasoning/phase4_post_meeting.md`
 

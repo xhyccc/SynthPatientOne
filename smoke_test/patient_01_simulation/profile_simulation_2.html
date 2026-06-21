@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulated Profile — patient_01 (Sim 2/2)</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;max-width:1100px;margin:20px auto;padding:0 20px;line-height:1.5;color:#333}
+  h1{border-bottom:3px solid #c0392b;color:#c0392b}
+  h2{border-bottom:1px solid #999;padding-bottom:4px;margin-top:24px}
+  .sim-header{background:#fdedec;border:1px solid #f5b7b1;padding:16px;border-radius:6px;margin:16px 0}
+  .scenario-label{display:inline-block;background:#c0392b;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px}
+  th,td{border:1px solid #ddd;padding:6px 8px}th{background:#f0f0f0}
+  .status-known{color:#1a7a1a;background:#e6ffe6}
+  .status-deprecated{color:#555;background:#e9e9e9}
+  .status-notknown{color:#c00;background:#ffe6e6}
+  .status-simulated{color:#6c3483;background:#f5eef8}
+  .status-simulated-warn{color:#c0392b;background:#fdedec}
+  details{margin:16px 0}
+  summary{cursor:pointer;font-weight:600;padding:8px;background:#f0f0f0;border-radius:4px}
+  .completeness-bar{height:20px;background:#e0e0e0;border-radius:10px;overflow:hidden;margin:8px 0}
+  .completeness-fill{height:100%;background:linear-gradient(90deg,#c0392b,#6c3483);border-radius:10px}
+  .reasoning-trace{background:#f8f9fa;border-left:4px solid #c0392b;padding:12px 16px;margin:8px 0;font-size:13px}
+  .seed-info{font-family:monospace;font-size:11px;color:#888}
+  .alert-box{background:#fdedec;border:1px solid #e74c3c;padding:12px;border-radius:4px;margin:12px 0}
+</style>
+</head>
+<body>
+
+<h1>Simulated Patient Profile — patient_01</h1>
+
+<div class="sim-header">
+  <p><span class="scenario-label">Progressive Decline</span></p>
+  <p><strong>Simulation:</strong> sim_02 / 2 &nbsp;|&nbsp; <strong>Seed:</strong> <span class="seed-info">sim_02_20250621_c3d</span></p>
+  <p><strong>Generated:</strong> 2025-06-21 &nbsp;|&nbsp; <strong>Departments simulated:</strong> 4 &nbsp;|&nbsp; <strong>Variables predicted:</strong> 12</p>
+  <div class="completeness-bar"><div class="completeness-fill" style="width:88%"></div></div>
+  <p style="font-size:12px;color:#555">Completeness: 88% — all critical unknowns filled. <strong>⚠️ Multiple values outside safe range in this scenario.</strong></p>
+</div>
+
+<div class="alert-box">
+<strong>⚠️ Clinical Alert (Simulated):</strong> In this scenario, the patient shows signs of COPD progression to GOLD Stage 3, early hypertensive cardiomyopathy (EF 48%), microalbuminuria, and deteriorating glycemic control. The MDT's current pharmacotherapy plan warrants urgent revision — SGLT2i initiation should be prioritized given the declining eGFR trajectory (68, falling approximately 3 mL/min/year): if untreated, the patient may approach the eGFR ≤45 threshold where SGLT2i dose adjustment is required and below which initiation is generally not recommended. ICS/LABA is now urgently indicated (GOLD 3). Echo finding changes cardiac risk categorization.
+</div>
+
+<details>
+<summary>📋 Section 1 — Original Status (from patient_01_profile/)</summary>
+<p><em>Same known baseline as sim_01. 24 ✅ Known variables, 4 📅 Deprecated, 6 ❌ Not Known.</em></p>
+<table>
+  <thead><tr><th>Variable</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>Blood Pressure</td><td>142/88 mmHg</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>HbA1c</td><td>7.8%</td><td class="status-known">✅ Known</td><td>lab_results.csv</td></tr>
+    <tr><td>eGFR</td><td>82 mL/min/1.73m²</td><td class="status-known">✅ Known</td><td>lab_results.csv</td></tr>
+    <tr><td>Lipid Panel (LDL/HDL/TG)</td><td>112 / 38 / 240 mg/dL</td><td class="status-deprecated">📅 Deprecated (15 months)</td><td>lab_results.csv</td></tr>
+    <tr><td>Echocardiogram</td><td>—</td><td class="status-notknown">❌ Not Known</td><td>—</td></tr>
+    <tr><td>PFT / Spirometry</td><td>—</td><td class="status-notknown">❌ Not Known</td><td>—</td></tr>
+    <tr><td>Urine Microalbumin</td><td>—</td><td class="status-notknown">❌ Not Known</td><td>—</td></tr>
+    <tr><td>COPD Diagnosis</td><td>GOLD Stage 2 (2020)</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+  </tbody>
+</table>
+</details>
+
+<details open>
+<summary>🔮 Section 2 — Simulated Profile (Progressive Decline scenario)</summary>
+<p><em>Predicted values for ❌ Not Known and 📅 Deprecated variables. 🔮 = simulated. ⚠️ = simulated value with clinical warning.</em></p>
+<table>
+  <thead><tr><th>Variable</th><th>Simulated Value</th><th>Status</th><th>Confidence</th><th>Comment</th></tr></thead>
+  <tbody>
+    <tr><td>Lipid Panel — LDL</td><td>145 mg/dL</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Low–Medium</td><td>Worsened without statin. Diabetic dyslipidemia progressed. Normal(μ=140,σ=20). Exceeds AHA &lt;100 threshold for high-risk. Statin now urgently indicated. Seed: sim_02_20250621_c3d</td></tr>
+    <tr><td>Lipid Panel — HDL</td><td>34 mg/dL</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Low</td><td>Further decline from 38 → 34. Very low HDL is an independent ASCVD risk factor.</td></tr>
+    <tr><td>Lipid Panel — Triglycerides</td><td>280 mg/dL</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>Worsened with poor glycemic control. Very high TG (&gt;200) consistent with diabetic dyslipidemia progression.</td></tr>
+    <tr><td>Echocardiogram — EF</td><td>48%</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>Mildly reduced EF (40–49% = HFmrEF). LVH from 10yr Stage 1 HTN + progressive cardiomyopathy. This changes cardiac risk categorization significantly.</td></tr>
+    <tr><td>BNP</td><td>320 pg/mL</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>Elevated (&gt;100). Suggests developing HFpEF/HFmrEF from HTN cardiomyopathy. BNP &gt;300 indicates significant cardiac stress.</td></tr>
+    <tr><td>PFT — FEV1</td><td>42% predicted</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>GOLD Stage 3 (severe, &lt;50%). Continued smoking (35 pack-years, still smoking) accelerates FEV1 decline ~50 mL/yr. ICS/LABA urgently indicated.</td></tr>
+    <tr><td>PFT — FVC</td><td>65% predicted</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>FEV1/FVC = 0.52 — severe obstruction. Significant air trapping.</td></tr>
+    <tr><td>PFT — FEV1/FVC</td><td>0.52</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>Severe obstruction (GOLD 3 confirmed). Risk of respiratory failure with next exacerbation.</td></tr>
+    <tr><td>TSH</td><td>4.1 mIU/L</td><td class="status-simulated">🔮 Simulated</td><td>Low</td><td>Borderline elevated. Possible developing subclinical hypothyroidism. Clinically not urgent but warrants monitoring. Independent of main diagnoses.</td></tr>
+    <tr><td>Vitamin D</td><td>15 ng/mL</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Low</td><td>Deficient (&lt;20). Worsened in progressive scenario — chronic disease, reduced outdoor activity.</td></tr>
+    <tr><td>Urine Microalbumin</td><td>85 mg/g Cr</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Low–Medium</td><td>Microalbuminuria (30-300). Early diabetic nephropathy. Requires ACEi dose increase to 20mg per KDIGO. SGLT2i initiation should be prioritized before eGFR declines further.</td></tr>
+    <tr><td>eGFR (current)</td><td>68 mL/min/1.73m²</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Medium</td><td>Declined from 82 → 68 (Stage G3a). Diabetic nephropathy progression. SGLT2i not recommended at eGFR &lt;45 if decline continues — initiate promptly or switch to GLP-1 RA. Metformin dose review needed at &lt;45.</td></tr>
+  </tbody>
+</table>
+</details>
+
+<details>
+<summary>🧠 Section 3 — Reasoning Traces</summary>
+<div class="reasoning-trace">
+  <strong>Scenario: Progressive Decline</strong> (Seed: sim_02_20250621_c3d)
+  <br><br>
+  <strong>Scenario rationale:</strong> In this simulation, the patient represents the unfavorable clinical trajectory — active smoking continues unabated, metabolic syndrome progresses, and organ-level complications begin to manifest. This scenario is clinically plausible given: 35 pack-years active smoker, HbA1c 7.8% (above target), BP 142/88 (undertreated), family history of CAD and heart failure, and 10 years of undertreated HTN.
+  <br><br>
+  <strong>EF 48% prediction:</strong> Category: disease-correlated. Population data for long-standing Stage 1 HTN with DM: ~20% develop LVEF &lt;50% by 10 years. In progressive scenario → LVEF reduced (48%). Clinically significant: changes MDT recommendation from "elective statin" to "urgent cardiac management." BNP 320 is internally consistent with EF 48%.
+  <br><br>
+  <strong>PFT FEV1 42% prediction:</strong> Category: disease-correlated. FEV1 decline in active smokers with COPD: ~50-80 mL/year (vs 25-30 mL/year in non-smokers). If FEV1 was ~60% at diagnosis (2020) → 5 years at 60 mL/year decline → ~42% is plausible. This moves patient from GOLD 2 to GOLD 3, which changes ICS/LABA recommendation from conditional to urgent.
+  <br><br>
+  <strong>eGFR 68 prediction:</strong> Category: disease-correlated. Diabetic nephropathy in T2DM with suboptimal glycemic control: eGFR declines ~3-5 mL/min/year. From 82 at baseline, 3 mL/year × ~5 years = 67 mL/min. Also: ACEi is protective but insufficient alone in progressive scenario. uACR 85 confirms early nephropathy. Internally consistent.
+  <br><br>
+  <strong>MDT decision impact analysis:</strong> In this scenario, the MDT's conditional pharmacotherapy plan is <strong>partially invalidated</strong>:
+  <ul>
+    <li>SGLT2i: Still safe now (eGFR 68 ≥ 45), but declining trajectory means it must be initiated PROMPTLY or an alternative chosen (GLP-1 RA).</li>
+    <li>ICS/LABA: NOW URGENT, not conditional. FEV1 42% is GOLD 3 — initiate immediately.</li>
+    <li>Statin: Even more urgent (LDL 145 + EF 48% = high-risk cardiac patient).</li>
+    <li>Echo result (EF 48%): Changes cardiac risk from "borderline high" to "confirmed HFmrEF" — Cardiology management intensification required.</li>
+  </ul>
+</div>
+</details>
+
+<details>
+<summary>📜 Section 4 — Combined History (Original + Simulated)</summary>
+<table>
+  <thead><tr><th>Date</th><th>Event</th><th>Status</th><th>Source</th></tr></thead>
+  <tbody>
+    <tr><td>2015</td><td>HTN diagnosed — Lisinopril 10mg initiated</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>2018</td><td>T2DM diagnosed — Metformin 1000mg BID initiated</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>2020</td><td>COPD GOLD Stage 2 diagnosed — Tiotropium 18mcg initiated</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>2024-03-20</td><td>Lipid panel: LDL 112, HDL 38, TG 240 — not treated (no statin prescribed)</td><td class="status-deprecated">📅 Deprecated</td><td>lab_results.csv</td></tr>
+    <tr><td>2025-06-10</td><td>COPD exacerbation — 2nd in 12 months (frequency indicates GOLD reclassification needed)</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>2025-06-15</td><td>Discharged — HbA1c 7.8%, eGFR 82 (decline from prior unknown baseline)</td><td class="status-known">✅ Known</td><td>discharge_summary.md</td></tr>
+    <tr><td>2025-06-21</td><td>MDT review — Further diagnostics + conditional pharmacotherapy plan</td><td class="status-known">✅ Known</td><td>patient_01_MDT/mdt_solution.html</td></tr>
+    <tr><td>2025-06-28</td><td>🔮 Lipid panel: LDL 145, HDL 34, TG 280 — urgent statin indication</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Seed: sim_02_20250621_c3d</td></tr>
+    <tr><td>2025-07-05</td><td>🔮 PFTs: FEV1 42%, FVC 65%, FEV1/FVC 0.52 — GOLD 3 (re-staged)</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Seed: sim_02_20250621_c3d</td></tr>
+    <tr><td>2025-07-05</td><td>🔮 Echo: EF 48% (HFmrEF), LVH, BNP 320 — significant cardiac finding</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Seed: sim_02_20250621_c3d</td></tr>
+    <tr><td>2025-07-05</td><td>🔮 Urine microalbumin 85 mg/g Cr — microalbuminuria, early diabetic nephropathy</td><td class="status-simulated-warn">⚠️🔮 Simulated</td><td>Seed: sim_02_20250621_c3d</td></tr>
+    <tr><td>2025-07-21</td><td>🔮 Urgent MDT reconvene — GOLD restaged to 3, cardiac plan revised, SGLT2i initiated with close monitoring</td><td class="status-simulated">🔮 Simulated</td><td>Seed: sim_02_20250621_c3d</td></tr>
+  </tbody>
+</table>
+</details>
+
+<p style="margin-top:32px;font-size:12px;color:#999">Generated: 2025-06-21 | Seed: sim_02_20250621_c3d | Scenario: Progressive Decline | Profile source: <a href="../patient_01_profile/profile.html">patient_01_profile/</a></p>
+</body>
+</html>

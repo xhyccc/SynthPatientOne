@@ -108,7 +108,7 @@ Full framework in `references/eval_framework.md`.
 
 ### Phase 0 — Setup
 
-1. Read `{patient_id}_MDT/consensus_report.html` — extract the MDT decision.
+1. Read `{patient_id}_MDT/mdt_solution.html` — extract the MDT decision.
 2. Read `{patient_id}_simulation/simulation_manifest.json` — get all N simulation seeds and scenarios.
 3. Create `{patient_id}_MDT_eval/` with all subdirectories.
 
@@ -137,7 +137,7 @@ Example: If sim_02 simulates LDL=145 (vs baseline LDL=88), and sim_02's D1 score
 For each simulation `i` (1 to N):
 
 1. Read `simulation_tables_{i}/` — this is the "ground truth" patient for this simulation.
-2. Read the MDT decision from `consensus_report.html`.
+2. Read the MDT decision from `mdt_solution.html`.
 3. For each of the 14 metrics across 4 dimensions, evaluate:
    - Compare MDT decision against simulated patient values.
    - Score 0-100 with rationale.
@@ -200,7 +200,7 @@ If the MDT context is PURELY DIAGNOSTIC (no treatment decision), adjust to: 0.50
 |---|---|
 | Evaluation seed | `eval_{patient_id}_{YYYYMMDD}_{random4}` |
 | All simulation seeds | From `simulation_manifest.json` |
-| MDT decision | From `consensus_report.html` |
+| MDT decision | From `mdt_solution.html` |
 | Scores | Rationale documented in per-sim logs |
 | Aggregate stats | Deterministic from `score_matrix.json` |
 
@@ -237,7 +237,7 @@ Pure LLM reasoning. Activate with:
 | Skill | Output Used by MDTEval |
 |---|---|
 | `PatientProfileBuilder` | Unknown Factors Audit → identifies which data was missing at MDT time |
-| `MDTBuilder` | consensus_report.html, minutes.md, patient_summary.md → the MDT decision being evaluated |
+| `MDTBuilder` | mdt_solution.html, reasoning/, logs/ → the MDT decision being evaluated |
 | `PatientSimulator` | simulation_tables_{i}/, simulation_manifest.json → N "ground truth" realities |
 
 ---

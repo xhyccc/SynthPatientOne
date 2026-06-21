@@ -85,7 +85,7 @@ After Phase 1 (ingest), the LLM MUST verify these before beginning Phase 2 audit
 
 ### Checklist
 1. **raw/combined_records.md exists** and contains merged text from all source documents.
-2. **Language detection is complete** — each document in combined_records.md has a  tag.
+2. **Language detection is complete** — each document in combined_records.md has a `<language>` tag.
 3. **All 36 HTML templates are copied** into status_tables/ (with <!-- FILL_ME --> markers).
 4. **All 36 HTML templates are copied** into history_tables/.
 5. **logs/ folder exists** with empty translation.txt, form_filling.txt, and profile_gen.txt.
@@ -93,6 +93,13 @@ After Phase 1 (ingest), the LLM MUST verify these before beginning Phase 2 audit
 ### Handoff Data Structure
 The LLM reads raw/combined_records.md as the primary input. Each document section begins with:
 
+```
+<document file="{original_filename}" language="{detected_language}" confidence="{0-100}">
+{full extracted text}
+</document>
+```
+
+If language is not English, the LLM MUST translate before filling tables and log the translation in `logs/translation.txt`.
 
 ### Failure Modes
 - If combined_records.md is empty: re-run Phase 1 with --ocr flag.
@@ -180,7 +187,7 @@ Write `profile.html` — self-contained HTML with:
 
 ```bash
 # Phase 1
-python scripts/run_pipeline.py phase1 /path/to/patient_id/ --ocr
+python scripts/run_pipeline.py {patient_id} --phase 1 --ocr
 
 # Phases 2 & 3: LLM agent fills tables, writes logs, produces profile.html
 ```
